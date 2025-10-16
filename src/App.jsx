@@ -12,6 +12,7 @@ import { JobsPage } from './pages/JobsPage';
 import { MentorshipPage } from './pages/MentorshipPage';
 import { StoriesPage } from './pages/StoriesPage';
 import { DashboardPage } from './pages/DashboardPage';
+import { AdminDashboard } from './pages/AdminDashboard';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -43,6 +44,8 @@ function App() {
         return <StoriesPage />;
       case 'dashboard':
         return <DashboardPage onNavigate={handleNavigate} />;
+      case 'admin':
+        return <AdminDashboard onNavigate={handleNavigate} />;
       default:
         return <HomePage onNavigate={handleNavigate} />;
     }

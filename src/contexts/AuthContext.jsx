@@ -72,6 +72,8 @@ export const AuthProvider = ({ children }) => {
           id: data.user.id,
           email: data.user.email,
           ...userData,
+          role: userData.user_type,
+          approval_status: 'pending',
         },
       ]);
 
@@ -88,6 +90,27 @@ export const AuthProvider = ({ children }) => {
     });
 
     if (error) throw error;
+
+    if (data.user) {
+      const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('approval_status')
+        .eq('id', data.user.id)
+        .maybeSingle();
+
+      if (profileError) throw profileError;
+
+      if (profile && profile.approval_status === 'pending') {
+        await supabase.auth.signOut();
+        throw new Error('Your account is pending approval. Please wait for an administrator to approve your registration.');
+      }
+
+      if (profile && profile.approval_status === 'rejected') {
+        await supabase.auth.signOut();
+        throw new Error('Your account registration was rejected. Please contact support for more information.');
+      }
+    }
+
     return data;
   };
 

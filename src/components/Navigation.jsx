@@ -18,23 +18,26 @@ export const Navigation = ({ onNavigate, currentPage }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = user
+  const baseNavItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'directory', label: 'Directory' },
+    { id: 'memories', label: 'Memories' },
+    { id: 'events', label: 'Events' },
+  ];
+
+  const userNavItems = user
     ? [
-        { id: 'home', label: 'Home' },
-        { id: 'directory', label: 'Directory' },
-        { id: 'memories', label: 'Memories' },
-        { id: 'events', label: 'Events' },
+        ...baseNavItems,
         { id: 'jobs', label: 'Jobs' },
         { id: 'mentorship', label: 'Mentorship' },
         { id: 'stories', label: 'Stories' },
         { id: 'dashboard', label: 'Dashboard' },
       ]
-    : [
-        { id: 'home', label: 'Home' },
-        { id: 'directory', label: 'Directory' },
-        { id: 'memories', label: 'Memories' },
-        { id: 'events', label: 'Events' },
-      ];
+    : baseNavItems;
+
+  const navItems = profile?.role === 'admin'
+    ? [...userNavItems, { id: 'admin', label: 'Admin' }]
+    : userNavItems;
 
   return (
     <nav

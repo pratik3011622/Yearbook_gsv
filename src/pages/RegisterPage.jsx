@@ -47,7 +47,8 @@ export const RegisterPage = ({ onNavigate }) => {
       userData.batch_year = parseInt(userData.batch_year);
 
       await signUp(formData.email, formData.password, userData);
-      onNavigate('dashboard');
+      alert('Registration successful! Your account is pending approval. You will be notified once an administrator approves your registration.');
+      onNavigate('login');
     } catch (err) {
       setError(err.message || 'Failed to create account. Please try again.');
     } finally {
