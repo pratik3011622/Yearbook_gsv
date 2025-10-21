@@ -5,17 +5,17 @@ const heroSlides = [
   {
     title: 'Connecting GSV Alumni Worldwide',
     subtitle: 'Join our thriving community of Gati Shakti Vishwavidyalaya graduates. Network, mentor, and grow together.',
-    image: 'https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    image: 'https://gsv.ac.in/wp-content/uploads/slider/cache/c51c9c0e2027b0762605e4380a2439cd/new-slider-01.jpg',
   },
   {
     title: 'Celebrate Your Journey',
-    subtitle: 'Relive the moments that shaped your college experience',
-    image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    subtitle: 'Relive the moments that shaped your college experience and celebrate your achievements.',
+    image: 'https://gsv.ac.in/wp-content/uploads/slider/cache/8bef1522bf9985ed15004d1a5d70af15/BOSS0373-scaled.jpg',
   },
   {
     title: 'Connect. Mentor. Grow.',
-    subtitle: 'Join a thriving community of alumni and students',
-    image: 'https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    subtitle: 'Join a thriving community of alumni and students building lasting connections.',
+    image: 'https://gsv.ac.in/wp-content/uploads/slider/cache/c51c9c0e2027b0762605e4380a2439cd/new-slider-01.jpg',
   },
 ];
 
@@ -64,9 +64,10 @@ export const Hero = ({ onNavigate }) => {
             <img
               src={slide.image}
               alt={slide.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center hero-image"
+              loading="eager"
             />
-            <div className="absolute inset-0 bg-primary-900/80"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-amber-900/20"></div>
           </div>
         ))}
       </div>
