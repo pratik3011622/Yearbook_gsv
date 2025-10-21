@@ -3,8 +3,8 @@ import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 const heroSlides = [
   {
-    title: 'Where Memories Meet Futures',
-    subtitle: 'Reconnect with your alma mater and build lasting connections',
+    title: 'Connecting GSV Alumni Worldwide',
+    subtitle: 'Join our thriving community of Gati Shakti Vishwavidyalaya graduates. Network, mentor, and grow together.',
     image: 'https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg?auto=compress&cs=tinysrgb&w=1920',
   },
   {
@@ -52,7 +52,7 @@ export const Hero = ({ onNavigate }) => {
   };
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden hero-bg">
       <div className="absolute inset-0 z-0">
         {heroSlides.map((slide, index) => (
           <div
@@ -66,14 +66,14 @@ export const Hero = ({ onNavigate }) => {
               alt={slide.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-amber-900/60"></div>
+            <div className="absolute inset-0 bg-primary-900/80"></div>
           </div>
         ))}
       </div>
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+          className="absolute w-96 h-96 bg-primary-500/20 rounded-full blur-3xl"
           style={{
             transform: `translate(${mousePosition.x * 2}px, ${mousePosition.y * 2}px)`,
             top: '10%',
@@ -82,7 +82,7 @@ export const Hero = ({ onNavigate }) => {
           }}
         ></div>
         <div
-          className="absolute w-96 h-96 bg-amber-500/20 rounded-full blur-3xl"
+          className="absolute w-96 h-96 bg-accent-500/20 rounded-full blur-3xl"
           style={{
             transform: `translate(${-mousePosition.x * 1.5}px, ${-mousePosition.y * 1.5}px)`,
             bottom: '10%',
@@ -109,24 +109,26 @@ export const Hero = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center max-w-4xl mx-auto">
             <div className="mb-6 flex justify-center">
-              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
-                <Sparkles className="w-5 h-5 text-amber-400 animate-pulse" />
+              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-soft">
+                <Sparkles className="w-5 h-5 text-accent-400 animate-pulse" />
                 <span className="text-white font-medium">Welcome to AlumniVerse</span>
               </div>
             </div>
 
             <h1
-              className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight animate-fadeIn"
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fadeIn"
               style={{ animationDelay: '0.2s' }}
             >
-              {heroSlides[currentSlide].title}
+              <span className="text-white">Connecting</span>{' '}
+              <span className="text-accent-400">GSV Alumni</span>{' '}
+              <span className="text-white">Worldwide</span>
             </h1>
 
             <p
-              className="text-xl sm:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto animate-fadeIn"
+              className="text-xl sm:text-2xl text-white/90 mb-12 max-w-3xl mx-auto animate-fadeIn"
               style={{ animationDelay: '0.4s' }}
             >
-              {heroSlides[currentSlide].subtitle}
+              Join our thriving community of Gati Shakti Vishwavidyalaya graduates. Network, mentor, and grow together.
             </p>
 
             <div
@@ -134,26 +136,21 @@ export const Hero = ({ onNavigate }) => {
               style={{ animationDelay: '0.6s' }}
             >
               <button
-                onClick={() => onNavigate('register')}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
+                onClick={() => onNavigate('directory')}
+                className="group relative px-8 py-4 bg-accent-900 text-white font-semibold text-lg rounded-xl overflow-hidden hover:shadow-strong hover:shadow-accent-500/50 transition-all duration-300 hover:scale-105 flex items-center space-x-2"
               >
-                <span className="relative z-10">Join as Alumni</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span className="relative z-10">Explore Directory</span>
+                <svg className="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <div className="absolute inset-0 bg-accent-800 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </button>
 
               <button
                 onClick={() => onNavigate('register')}
-                className="group relative px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold text-lg rounded-full overflow-hidden hover:shadow-2xl hover:shadow-amber-500/50 transition-all duration-300 hover:scale-105"
+                className="px-8 py-4 bg-transparent text-white font-semibold text-lg rounded-xl border-2 border-white hover:bg-white hover:text-primary-900 transition-all duration-300 hover:scale-105"
               >
-                <span className="relative z-10">Register as Student</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-amber-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </button>
-
-              <button
-                onClick={() => onNavigate('memories')}
-                className="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold text-lg rounded-full border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105"
-              >
-                Explore Yearbook
+                Join Now
               </button>
             </div>
           </div>
@@ -162,7 +159,7 @@ export const Hero = ({ onNavigate }) => {
 
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 hover:bg-white/20 transition-all group"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 hover:bg-white/20 transition-all group"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
@@ -170,7 +167,7 @@ export const Hero = ({ onNavigate }) => {
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 hover:bg-white/20 transition-all group"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 hover:bg-white/20 transition-all group"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
@@ -189,7 +186,7 @@ export const Hero = ({ onNavigate }) => {
         ))}
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 dark:from-slate-950 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
     </div>
   );
 };

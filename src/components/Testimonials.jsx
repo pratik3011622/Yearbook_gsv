@@ -44,13 +44,13 @@ export const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-900">
+    <section className="py-20 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-neutral-900 mb-4">
             Voices of Our Community
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400">
+          <p className="text-xl text-neutral-600">
             Hear what alumni have to say about their AlumniVerse experience
           </p>
         </div>
@@ -66,8 +66,8 @@ export const Testimonials = () => {
                     : 'opacity-0 absolute inset-0 translate-x-full'
                 }`}
               >
-                <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl p-8 md:p-12 relative">
-                  <div className="absolute top-8 left-8 text-blue-500/10 dark:text-blue-400/10">
+                <div className="card-elevated p-8 md:p-12 relative">
+                  <div className="absolute top-8 left-8 text-primary-500/10">
                     <Quote className="w-24 h-24" />
                   </div>
 
@@ -76,22 +76,22 @@ export const Testimonials = () => {
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
-                        className="w-20 h-20 rounded-full object-cover border-4 border-blue-500 shadow-lg"
+                        className="w-20 h-20 rounded-full object-cover border-4 border-primary-500 shadow-medium"
                       />
                       <div>
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                        <h3 className="text-2xl font-bold text-neutral-900">
                           {testimonial.name}
                         </h3>
-                        <p className="text-blue-600 dark:text-blue-400 font-medium">
+                        <p className="text-primary-600 font-medium">
                           {testimonial.batch}
                         </p>
-                        <p className="text-slate-600 dark:text-slate-400 text-sm">
+                        <p className="text-neutral-600 text-sm">
                           {testimonial.role}
                         </p>
                       </div>
                     </div>
 
-                    <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed italic">
+                    <p className="text-xl text-neutral-700 leading-relaxed italic">
                       "{testimonial.quote}"
                     </p>
                   </div>
@@ -107,8 +107,8 @@ export const Testimonials = () => {
                 onClick={() => setCurrentIndex(index)}
                 className={`h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? 'w-12 bg-blue-600'
-                    : 'w-3 bg-slate-300 dark:bg-slate-600'
+                    ? 'w-12 bg-primary-600'
+                    : 'w-3 bg-neutral-300'
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               ></button>

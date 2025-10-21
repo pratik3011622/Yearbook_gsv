@@ -55,35 +55,35 @@ export const HomePage = ({ onNavigate }) => {
       <ThisDayWidget />
       <Testimonials />
 
-      <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-amber-400 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+          <div className="absolute top-10 left-10 w-64 h-64 bg-accent-400 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary-400 rounded-full blur-3xl"></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl sm:text-5xl font-serif font-bold mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-6">
             Stay Connected
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-white/90 mb-8">
             Get notified about upcoming reunions, events, and community updates
           </p>
 
           <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
             <div className="relative flex-1">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400" />
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="w-full pl-12 pr-4 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                className="w-full pl-12 pr-4 py-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-accent-400"
                 required
               />
             </div>
             <button
               type="submit"
-              className="px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-amber-500/50 transition-all hover:scale-105"
+              className="btn-secondary"
             >
               Subscribe
             </button>
@@ -91,21 +91,21 @@ export const HomePage = ({ onNavigate }) => {
         </div>
       </section>
 
-      <footer className="bg-slate-900 dark:bg-black text-white py-12">
+      <footer className="bg-neutral-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-2xl font-serif font-bold mb-4 bg-gradient-to-r from-blue-400 to-amber-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl font-bold mb-4 gradient-text">
                 AlumniVerse
               </h3>
-              <p className="text-slate-400 text-sm">
+              <p className="text-neutral-400 text-sm">
                 Where Memories Meet Futures
               </p>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-slate-400 text-sm">
+              <ul className="space-y-2 text-neutral-400 text-sm">
                 <li>
                   <button onClick={() => onNavigate('directory')} className="hover:text-white transition-colors">
                     Alumni Directory
@@ -126,7 +126,7 @@ export const HomePage = ({ onNavigate }) => {
 
             <div>
               <h4 className="font-semibold mb-4">Community</h4>
-              <ul className="space-y-2 text-slate-400 text-sm">
+              <ul className="space-y-2 text-neutral-400 text-sm">
                 <li>
                   <button onClick={() => onNavigate('mentorship')} className="hover:text-white transition-colors">
                     Mentorship
@@ -147,19 +147,19 @@ export const HomePage = ({ onNavigate }) => {
 
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
-              <p className="text-slate-400 text-sm mb-2">
+              <p className="text-neutral-400 text-sm mb-2">
                 Join our vibrant community today
               </p>
               <button
                 onClick={() => onNavigate('register')}
-                className="px-6 py-2 bg-gradient-to-r from-blue-600 to-amber-500 text-white rounded-full font-medium text-sm hover:shadow-lg transition-all"
+                className="btn-primary"
               >
                 Join Now
               </button>
             </div>
           </div>
 
-          <div className="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400 text-sm">
+          <div className="border-t border-neutral-800 mt-8 pt-8 text-center text-neutral-400 text-sm">
             <p>&copy; 2025 AlumniVerse. All rights reserved.</p>
           </div>
         </div>
@@ -168,7 +168,7 @@ export const HomePage = ({ onNavigate }) => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-4 bg-gradient-to-r from-blue-600 to-amber-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 z-40"
+          className="fixed bottom-8 right-8 p-4 bg-primary-900 text-white rounded-xl shadow-strong hover:shadow-xl transition-all hover:scale-110 z-40"
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-6 h-6" />

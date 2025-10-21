@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,96 +6,134 @@
 
 @layer base {
   body {
-    @apply font-sans text-slate-900 dark:text-slate-100;
+    @apply font-sans text-neutral-800 bg-white;
     font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
-    font-family: 'Merriweather', serif;
+    @apply font-sans font-bold text-neutral-900;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl sm:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl sm:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg sm:text-xl;
+  }
+
+  h6 {
+    @apply text-base sm:text-lg;
+  }
+}
+
+@layer components {
+  /* Button Components */
+  .btn-primary {
+    @apply bg-primary-900 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:bg-primary-800 hover:shadow-medium focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-accent-900 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:bg-accent-800 hover:shadow-medium focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-900 text-primary-900 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:bg-primary-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply text-primary-900 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  /* Card Components */
+  .card {
+    @apply bg-white rounded-2xl shadow-soft border border-neutral-200 p-6 transition-all duration-300 hover:shadow-medium;
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-2xl shadow-medium border border-neutral-200 p-8 transition-all duration-300 hover:shadow-strong hover:-translate-y-1;
+  }
+
+  /* Ensure text visibility */
+  .card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {
+    @apply text-neutral-900;
+  }
+
+  .card p {
+    @apply text-neutral-600;
+  }
+
+  .card-elevated h1, .card-elevated h2, .card-elevated h3, .card-elevated h4, .card-elevated h5, .card-elevated h6 {
+    @apply text-neutral-900;
+  }
+
+  .card-elevated p {
+    @apply text-neutral-600;
+  }
+
+  /* Input Components */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border border-neutral-300 text-neutral-900 placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300;
+  }
+
+  /* Navigation Components */
+  .nav-link {
+    @apply px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 hover:bg-primary-50 hover:text-primary-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .nav-link-active {
+    @apply bg-primary-900 text-white shadow-soft;
   }
 }
 
 @layer utilities {
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideInRight {
-    from {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-  }
-
+  /* Custom animations */
   .animate-fadeIn {
-    animation: fadeIn 1s ease-out forwards;
+    animation: fadeIn 0.6s ease-out forwards;
   }
 
-  .animate-slideInLeft {
-    animation: slideInLeft 0.8s ease-out forwards;
+  .animate-slideUp {
+    animation: slideUp 0.6s ease-out forwards;
   }
 
-  .animate-slideInRight {
-    animation: slideInRight 0.8s ease-out forwards;
+  .animate-scaleIn {
+    animation: scaleIn 0.4s ease-out forwards;
   }
 
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
+  /* Glass effect for hero sections */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-900 to-accent-900 bg-clip-text text-transparent;
+  }
+
+  /* Hero background */
+  .hero-bg {
+    background: linear-gradient(135deg, #1A368A 0%, #2C4A9E 100%);
   }
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-.glass-effect {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.dark .glass-effect {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }

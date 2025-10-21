@@ -64,9 +64,9 @@ export const StatsCounter = ({ stats }) => {
       icon: Users,
       count: alumniCount,
       label: 'Alumni Members',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-500/10',
-      iconColor: 'text-blue-600 dark:text-blue-400',
+      color: 'from-primary-500 to-primary-600',
+      bgColor: 'bg-primary-500/10',
+      iconColor: 'text-primary-600',
     },
     {
       icon: Globe,
@@ -74,7 +74,7 @@ export const StatsCounter = ({ stats }) => {
       label: 'Countries',
       color: 'from-emerald-500 to-emerald-600',
       bgColor: 'bg-emerald-500/10',
-      iconColor: 'text-emerald-600 dark:text-emerald-400',
+      iconColor: 'text-emerald-600',
     },
     {
       icon: Calendar,
@@ -82,29 +82,29 @@ export const StatsCounter = ({ stats }) => {
       label: 'Events Hosted',
       color: 'from-purple-500 to-purple-600',
       bgColor: 'bg-purple-500/10',
-      iconColor: 'text-purple-600 dark:text-purple-400',
+      iconColor: 'text-purple-600',
     },
     {
       icon: Briefcase,
       count: jobsCount,
       label: 'Job Opportunities',
-      color: 'from-amber-500 to-amber-600',
-      bgColor: 'bg-amber-500/10',
-      iconColor: 'text-amber-600 dark:text-amber-400',
+      color: 'from-accent-500 to-accent-600',
+      bgColor: 'bg-accent-500/10',
+      iconColor: 'text-accent-600',
     },
   ];
 
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-amber-50/20 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+      className="py-20 bg-gradient-to-br from-neutral-50 via-primary-50/30 to-accent-50/20"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-neutral-900 mb-4">
             Growing Together
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400">
+          <p className="text-xl text-neutral-600">
             Join thousands of alumni making an impact worldwide
           </p>
         </div>
@@ -115,13 +115,11 @@ export const StatsCounter = ({ stats }) => {
             return (
               <div
                 key={index}
-                className="group relative bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                className="group relative card-elevated hover:-translate-y-2"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500"></div>
-
                 <div className={`${stat.bgColor} w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <Icon className={`w-8 h-8 ${stat.iconColor}`} />
                 </div>
@@ -131,7 +129,7 @@ export const StatsCounter = ({ stats }) => {
                     {stat.count.toLocaleString()}
                     {stat.count >= 100 && '+'}
                   </div>
-                  <div className="text-slate-600 dark:text-slate-400 font-medium text-lg">
+                  <div className="text-neutral-600 font-medium text-lg">
                     {stat.label}
                   </div>
                 </div>

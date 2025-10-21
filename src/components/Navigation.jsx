@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Moon, Sun, Menu, X, GraduationCap } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+import { Menu, X, GraduationCap } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 export const Navigation = ({ onNavigate, currentPage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
   const { user, profile, signOut } = useAuth();
 
   useEffect(() => {
@@ -42,9 +40,9 @@ export const Navigation = ({ onNavigate, currentPage }) => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-lg'
-          : 'bg-transparent'
+        currentPage === 'home' && !isScrolled
+          ? 'bg-white/10 backdrop-blur-md' // Only transparent on home page when not scrolled
+          : 'bg-white/95 backdrop-blur-xl shadow-medium' // Solid background on all other pages and when scrolled
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,14 +52,19 @@ export const Navigation = ({ onNavigate, currentPage }) => {
             onClick={() => onNavigate('home')}
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-amber-500 rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity"></div>
-              <GraduationCap className="w-10 h-10 text-blue-600 dark:text-amber-400 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+              <GraduationCap className={`w-10 h-10 relative z-10 group-hover:rotate-12 transition-all duration-300 ${
+                currentPage === 'home' && !isScrolled ? 'text-white' : 'text-primary-900'
+              }`} />
             </div>
             <div>
-              <h1 className="text-2xl font-serif font-bold bg-gradient-to-r from-blue-700 to-amber-600 dark:from-blue-400 dark:to-amber-400 bg-clip-text text-transparent">
+              <h1 className={`text-2xl font-bold transition-colors duration-300 ${
+                currentPage === 'home' && !isScrolled ? 'text-white' : 'text-primary-900'
+              }`}>
                 AlumniVerse
               </h1>
-              <p className="text-xs text-slate-600 dark:text-slate-400 font-sans">
+              <p className={`text-xs font-medium transition-colors duration-300 ${
+                currentPage === 'home' && !isScrolled ? 'text-white/80' : 'text-neutral-600'
+              }`}>
                 Where Memories Meet Futures
               </p>
             </div>
@@ -72,10 +75,14 @@ export const Navigation = ({ onNavigate, currentPage }) => {
               <button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}
-                className={`px-4 py-2 rounded-lg font-medium text-sm transition-all duration-300 ${
+                className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 ${
                   currentPage === item.id
-                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
-                    : 'text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-800'
+                    ? currentPage === 'home' && !isScrolled
+                      ? 'bg-white text-primary-900 shadow-soft'
+                      : 'bg-primary-900 text-white shadow-soft'
+                    : currentPage === 'home' && !isScrolled
+                    ? 'text-white/90 hover:bg-white/20 hover:text-white'
+                    : 'text-neutral-700 hover:bg-primary-50 hover:text-primary-900'
                 }`}
               >
                 {item.label}
@@ -84,31 +91,24 @@ export const Navigation = ({ onNavigate, currentPage }) => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 hover:scale-110"
-              aria-label="Toggle theme"
-            >
-              {isDark ? (
-                <Sun className="w-5 h-5 text-amber-400" />
-              ) : (
-                <Moon className="w-5 h-5 text-slate-700" />
-              )}
-            </button>
 
             {user ? (
               <div className="hidden lg:flex items-center space-x-3">
                 <div className="text-right">
-                  <p className="text-sm font-medium text-slate-800 dark:text-slate-200">
+                  <p className={`text-sm font-medium transition-colors duration-300 ${
+                    currentPage === 'home' && !isScrolled ? 'text-white' : 'text-neutral-800'
+                  }`}>
                     {profile?.full_name || 'User'}
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className={`text-xs transition-colors duration-300 ${
+                    currentPage === 'home' && !isScrolled ? 'text-white/80' : 'text-neutral-600'
+                  }`}>
                     {profile?.user_type === 'alumni' ? 'Alumni' : 'Student'}
                   </p>
                 </div>
                 <button
                   onClick={signOut}
-                  className="px-4 py-2 bg-red-500 text-white rounded-lg font-medium text-sm hover:bg-red-600 transition-colors"
+                  className="px-4 py-2 bg-red-600 text-white rounded-xl font-medium text-sm hover:bg-red-700 transition-colors"
                 >
                   Sign Out
                 </button>
@@ -117,13 +117,21 @@ export const Navigation = ({ onNavigate, currentPage }) => {
               <div className="hidden lg:flex items-center space-x-3">
                 <button
                   onClick={() => onNavigate('login')}
-                  className="px-4 py-2 text-blue-600 dark:text-blue-400 font-medium text-sm hover:bg-blue-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                  className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 ${
+                    currentPage === 'home' && !isScrolled
+                      ? 'text-white/90 hover:bg-white/20 hover:text-white'
+                      : 'text-neutral-700 hover:bg-primary-50 hover:text-primary-900'
+                  }`}
                 >
                   Sign In
                 </button>
                 <button
                   onClick={() => onNavigate('register')}
-                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-amber-500 text-white rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-blue-500/30 transition-all"
+                  className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 shadow-soft ${
+                    currentPage === 'home' && !isScrolled
+                      ? 'bg-white text-primary-900 hover:bg-white/90'
+                      : 'bg-primary-900 text-white hover:bg-primary-800'
+                  }`}
                 >
                   Join Now
                 </button>
@@ -132,12 +140,20 @@ export const Navigation = ({ onNavigate, currentPage }) => {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800"
+              className={`lg:hidden p-2 rounded-xl transition-all duration-300 ${
+                currentPage === 'home' && !isScrolled
+                  ? 'bg-white/20 hover:bg-white/30'
+                  : 'bg-neutral-100 hover:bg-neutral-200'
+              }`}
             >
               {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-slate-700 dark:text-slate-300" />
+                <X className={`w-6 h-6 transition-colors duration-300 ${
+                  currentPage === 'home' && !isScrolled ? 'text-white' : 'text-neutral-700'
+                }`} />
               ) : (
-                <Menu className="w-6 h-6 text-slate-700 dark:text-slate-300" />
+                <Menu className={`w-6 h-6 transition-colors duration-300 ${
+                  currentPage === 'home' && !isScrolled ? 'text-white' : 'text-neutral-700'
+                }`} />
               )}
             </button>
           </div>
@@ -145,7 +161,11 @@ export const Navigation = ({ onNavigate, currentPage }) => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
+        <div className={`lg:hidden border-t shadow-medium transition-all duration-300 ${
+          currentPage === 'home' && !isScrolled
+            ? 'bg-white/95 backdrop-blur-md border-white/20'
+            : 'bg-white border-neutral-200'
+        }`}>
           <div className="px-4 py-4 space-y-2">
             {navItems.map((item) => (
               <button
@@ -154,10 +174,10 @@ export const Navigation = ({ onNavigate, currentPage }) => {
                   onNavigate(item.id);
                   setIsMobileMenuOpen(false);
                 }}
-                className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-all ${
+                className={`block w-full text-left px-4 py-3 rounded-xl font-medium transition-all ${
                   currentPage === item.id
-                    ? 'bg-blue-600 text-white'
-                    : 'text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-800'
+                    ? 'bg-primary-900 text-white'
+                    : 'text-neutral-700 hover:bg-primary-50'
                 }`}
               >
                 {item.label}
@@ -166,7 +186,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
             {user ? (
               <button
                 onClick={signOut}
-                className="block w-full text-left px-4 py-3 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 transition-colors"
+                className="block w-full text-left px-4 py-3 bg-red-600 text-white rounded-xl font-medium hover:bg-red-700 transition-colors"
               >
                 Sign Out
               </button>
@@ -177,7 +197,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
                     onNavigate('login');
                     setIsMobileMenuOpen(false);
                   }}
-                  className="block w-full text-left px-4 py-3 text-blue-600 dark:text-blue-400 font-medium hover:bg-blue-50 dark:hover:bg-slate-800 rounded-lg"
+                  className="block w-full text-left px-4 py-3 text-primary-900 font-medium hover:bg-primary-50 rounded-xl"
                 >
                   Sign In
                 </button>
@@ -186,7 +206,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
                     onNavigate('register');
                     setIsMobileMenuOpen(false);
                   }}
-                  className="block w-full text-left px-4 py-3 bg-gradient-to-r from-blue-600 to-amber-500 text-white rounded-lg font-medium"
+                  className="block w-full text-left px-4 py-3 bg-primary-900 text-white rounded-xl font-medium hover:bg-primary-800"
                 >
                   Join Now
                 </button>
