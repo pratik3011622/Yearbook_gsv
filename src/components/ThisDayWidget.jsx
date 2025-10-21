@@ -3,36 +3,28 @@ import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const historicalEvents = [
   {
-    year: 2018,
+    year: 2025,
     month: 'March',
     day: 15,
-    title: 'Annual Tech Fest Inauguration',
-    description: 'The 10th edition of our flagship tech fest kicked off with record participation.',
-    image: 'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800',
+    title: 'The Graduating Class of 2025',
+    description: 'A proud day for the Graduates of Gati Shakti Vishwavidyalaya.',
+    image: '/WhatsApp Image 2025-10-21 at 23.04.13_24f84d84.jpg',
   },
   {
-    year: 2019,
-    month: 'October',
-    day: 20,
-    title: 'Graduation Ceremony 2019',
-    description: 'Over 500 students received their degrees in a memorable ceremony.',
-    image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800',
+    year: 2025,
+    month: 'April',
+    day: 26,
+    title: 'Farewell Function',
+    description: 'An evening of laughter, memories, and heartfelt goodbyes ',
+    image: '/WhatsApp Image 2025-10-21 at 23.15.20_a3ba8370.jpg',
   },
   {
-    year: 2020,
-    month: 'February',
-    day: 14,
-    title: 'Sports Day Championship',
-    description: 'Inter-college sports meet saw fierce competition and school spirit.',
-    image: 'https://images.pexels.com/photos/262524/pexels-photo-262524.jpeg?auto=compress&cs=tinysrgb&w=800',
-  },
-  {
-    year: 2021,
-    month: 'September',
-    day: 5,
-    title: 'Alumni Reunion Weekend',
-    description: 'Alumni from 15 different batches reunited for a weekend of nostalgia.',
-    image: 'https://images.pexels.com/photos/1543895/pexels-photo-1543895.jpeg?auto=compress&cs=tinysrgb&w=800',
+    year: 2025,
+    month: 'July',
+    day: 27,
+    title: 'Convocation Ceremony',
+    description: 'A proud moment of achievement and new beginnings , the Convocation Ceremony marked the culmination of dedication, learning, and perseverance, as graduates stepped forward to embrace their future with honor and pride',
+    image: 'https://gsv.ac.in/wp-content/uploads/slider/cache/8bef1522bf9985ed15004d1a5d70af15/BOSS0373-scaled.jpg',
   },
 ];
 
@@ -79,7 +71,8 @@ export const ThisDayWidget = () => {
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
+                  style={{ maxHeight: '400px' }}
                 />
                 <div className="absolute top-4 left-4 bg-accent-500 text-white px-4 py-2 rounded-xl font-bold">
                   {event.year}
