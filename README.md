@@ -100,4 +100,3 @@ To create your first admin account:
 
 ---
 
-Built with ❤️ for the AlumniVerse community
