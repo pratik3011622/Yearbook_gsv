@@ -46,7 +46,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           <div
             className="flex items-center space-x-3 cursor-pointer group"
             onClick={() => onNavigate('home')}
@@ -55,7 +55,9 @@ export const Navigation = ({ onNavigate, currentPage }) => {
               <img
                 src="https://upload.wikimedia.org/wikipedia/en/d/d2/Gati_Shakti_Vishwavidyalaya_Logo.png"
                 alt="Gati Shakti Vishwavidyalaya Logo"
-                className="w-10 h-10 relative z-10 group-hover:scale-110 transition-all duration-300 object-contain"
+                className={`w-8 sm:w-10 h-8 sm:h-10 relative z-10 group-hover:scale-110 transition-all duration-300 object-contain ${
+                  currentPage === 'home' && !isScrolled ? 'brightness-0 invert' : ''
+                }`}
               />
             </div>
             <div>
