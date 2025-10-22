@@ -46,8 +46,15 @@ export const Hero = ({ onNavigate }) => {
 
   return (
     <div className="relative">
-      {/* Top Navigation Bar - University Theme */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-2xl">
+      {/* Top Navigation Bar - Ultimate Premium Theme */}
+      <div className="bg-gradient-to-r from-indigo-700 via-purple-700 via-pink-600 to-blue-700 shadow-2xl border-b border-indigo-400 relative overflow-hidden">
+        {/* Animated background particles */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-2 left-10 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+          <div className="absolute top-6 right-20 w-1 h-1 bg-yellow-300 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-4 left-1/3 w-1.5 h-1.5 bg-pink-300 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-8 right-1/4 w-1 h-1 bg-blue-300 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Top Section with Logo, Title, and Auth Buttons */}
           <div className="flex justify-between items-center py-4 sm:py-6">
@@ -63,18 +70,18 @@ export const Hero = ({ onNavigate }) => {
               </div>
             </div>
 
-            <div className="flex items-center space-x-2 sm:space-x-4">
-              <div className="hidden md:flex items-center space-x-3">
+            <div className="flex items-center space-x-2 sm:space-x-4 relative z-20">
+              <div className="flex items-center space-x-3">
                 <button
                   onClick={() => window.open('https://www.facebook.com/gsv.ac.in/', '_blank')}
-                  className="p-2 text-blue-200 hover:text-white transition-colors"
+                  className="p-3 text-white hover:text-yellow-400 transition-all duration-300 hover:scale-125 hover:rotate-12 hover:shadow-lg hover:shadow-blue-500/50 rounded-lg"
                   title="Follow us on Facebook"
                 >
                   <Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button
                   onClick={() => window.open('https://www.linkedin.com/school/gatishaktivishwavidyalaya/', '_blank')}
-                  className="p-2 text-blue-200 hover:text-white transition-colors"
+                  className="p-3 text-white hover:text-yellow-400 transition-all duration-300 hover:scale-125 hover:rotate-12 hover:shadow-lg hover:shadow-blue-500/50 rounded-lg"
                   title="Connect with us on LinkedIn"
                 >
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -94,17 +101,17 @@ export const Hero = ({ onNavigate }) => {
                       });
                     }
                   }}
-                  className="p-2 text-blue-200 hover:text-white transition-colors"
+                  className="p-3 text-white hover:text-yellow-400 transition-all duration-300 hover:scale-125 hover:rotate-12 hover:shadow-lg hover:shadow-blue-500/50 rounded-lg"
                   title="Share GSVConnect"
                 >
                   <Share2 className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
-                <button className="p-2 text-blue-200 hover:text-white transition-colors">
+                <button className="p-3 text-white hover:text-yellow-400 transition-all duration-300 hover:scale-125 hover:rotate-12 hover:shadow-lg hover:shadow-blue-500/50 rounded-lg">
                   <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button
                   onClick={() => window.open('https://www.instagram.com/gsv.vadodara?igsh=MWpqaWxhbXIycGQzcA==', '_blank')}
-                  className="p-2 text-blue-200 hover:text-white transition-colors"
+                  className="p-3 text-white hover:text-yellow-400 transition-all duration-300 hover:scale-125 hover:rotate-12 hover:shadow-lg hover:shadow-blue-500/50 rounded-lg"
                   title="Follow us on Instagram"
                 >
                   <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -126,12 +133,12 @@ export const Hero = ({ onNavigate }) => {
           </div>
 
           {/* Navigation Menu Section */}
-          <div className="border-t border-blue-500/30 py-3 sm:py-4">
+          <div className="border-t border-purple-300/50 py-3 sm:py-4 relative z-10">
             <nav className="flex justify-center space-x-4 sm:space-x-8">
-              <button onClick={() => onNavigate('home')} className="text-blue-200 hover:text-white font-medium transition-colors text-sm sm:text-lg px-3 sm:px-4 py-2 rounded-lg hover:bg-blue-800/50">Home</button>
-              <button onClick={() => onNavigate('directory')} className="text-blue-200 hover:text-white font-medium transition-colors text-sm sm:text-lg px-3 sm:px-4 py-2 rounded-lg hover:bg-blue-800/50">Directory</button>
-              <button onClick={() => onNavigate('events')} className="text-blue-200 hover:text-white font-medium transition-colors text-sm sm:text-lg px-3 sm:px-4 py-2 rounded-lg hover:bg-blue-800/50">Events</button>
-              <button onClick={() => onNavigate('stories')} className="text-blue-200 hover:text-white font-medium transition-colors text-sm sm:text-lg px-3 sm:px-4 py-2 rounded-lg hover:bg-blue-800/50">Stories</button>
+              <button onClick={() => onNavigate('home')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-sm sm:text-lg px-4 sm:px-5 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Home</button>
+              <button onClick={() => onNavigate('directory')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-sm sm:text-lg px-4 sm:px-5 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Directory</button>
+              <button onClick={() => onNavigate('events')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-sm sm:text-lg px-4 sm:px-5 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Events</button>
+              <button onClick={() => onNavigate('stories')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-sm sm:text-lg px-4 sm:px-5 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Stories</button>
             </nav>
           </div>
         </div>
