@@ -79,7 +79,24 @@ export const Hero = ({ onNavigate }) => {
                 >
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
-                <button className="p-2 text-blue-200 hover:text-white transition-colors">
+                <button
+                  onClick={() => {
+                    if (navigator.share) {
+                      navigator.share({
+                        title: 'GSVConnect - Gati Shakti Vishwavidyalaya Alumni Network',
+                        text: 'Join the official alumni network of Gati Shakti Vishwavidyalaya. Connect with fellow alumni, share experiences, and build lifelong relationships.',
+                        url: window.location.href,
+                      });
+                    } else {
+                      // Fallback: Copy URL to clipboard
+                      navigator.clipboard.writeText(window.location.href).then(() => {
+                        alert('Link copied to clipboard! Share it with your friends.');
+                      });
+                    }
+                  }}
+                  className="p-2 text-blue-200 hover:text-white transition-colors"
+                  title="Share GSVConnect"
+                >
                   <Share2 className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button className="p-2 text-blue-200 hover:text-white transition-colors">
