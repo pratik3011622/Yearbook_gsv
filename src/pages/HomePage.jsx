@@ -67,63 +67,63 @@ export const HomePage = ({ onNavigate }) => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
             <div className="group bg-white dark:bg-neutral-800 rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:rotate-y-2 border border-neutral-200 dark:border-neutral-700 transform-gpu">
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 flex items-center justify-center p-8 relative overflow-hidden">
+              <div className="aspect-[4/3] bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 flex items-center justify-center p-4 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent"></div>
                 <img
                   src="/Screenshot 2025-10-21 211940.png"
                   alt="Message from Chancellor"
-                  className="w-full h-full object-contain max-w-full max-h-full rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500 transform-gpu scale-150"
+                  className="w-full h-full object-cover rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-500 transform-gpu"
                   style={{ transformStyle: 'preserve-3d' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <div className="p-10 transform-gpu">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center shadow-lg transform-gpu">
-                    <span className="text-white font-bold text-lg">C</span>
+              <div className="p-8 transform-gpu">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-14 h-14 bg-primary-500 rounded-full flex items-center justify-center shadow-lg transform-gpu">
+                    <span className="text-white font-bold text-xl">C</span>
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
                       Chancellor
                     </h3>
-                    <p className="text-primary-600 dark:text-primary-400 text-sm font-medium">
+                    <p className="text-primary-600 dark:text-primary-400 text-base font-medium">
                       Gati Shakti Vishwavidyalaya
                     </p>
                   </div>
                 </div>
                 <p className="text-neutral-800 dark:text-neutral-200 leading-relaxed text-lg font-semibold">
-                  A message of inspiration and guidance from our esteemed Chancellor, leading our institution with vision and dedication to foster excellence in education and innovation.
+                  A message of inspiration and guidance from our esteemed Chancellor, leading our institution with vision and dedication to foster excellence in education and innovation. Through strategic leadership and unwavering commitment, the Chancellor continues to drive our university towards new heights of academic excellence and global recognition.
                 </p>
               </div>
             </div>
 
             <div className="group bg-white dark:bg-neutral-800 rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:-rotate-y-2 border border-neutral-200 dark:border-neutral-700 transform-gpu">
-              <div className="aspect-[4/3] bg-gradient-to-br from-accent-50 to-accent-100 dark:from-accent-900/20 dark:to-accent-800/20 flex items-center justify-center p-8 relative overflow-hidden">
+              <div className="aspect-[4/3] bg-gradient-to-br from-accent-50 to-accent-100 dark:from-accent-900/20 dark:to-accent-800/20 flex items-center justify-center p-4 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-transparent"></div>
                 <img
                   src="/Screenshot 2025-10-21 212003.png"
                   alt="Message from Vice Chancellor"
-                  className="w-full h-full object-contain max-w-full max-h-full rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500 transform-gpu scale-150"
+                  className="w-full h-full object-cover rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-500 transform-gpu"
                   style={{ transformStyle: 'preserve-3d' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <div className="p-10 transform-gpu">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center shadow-lg transform-gpu">
-                    <span className="text-white font-bold text-lg">VC</span>
+              <div className="p-8 transform-gpu">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-14 h-14 bg-accent-500 rounded-full flex items-center justify-center shadow-lg transform-gpu">
+                    <span className="text-white font-bold text-xl">VC</span>
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
                       Vice Chancellor
                     </h3>
-                    <p className="text-accent-600 dark:text-accent-400 text-sm font-medium">
+                    <p className="text-accent-600 dark:text-accent-400 text-base font-medium">
                       Gati Shakti Vishwavidyalaya
                     </p>
                   </div>
                 </div>
                 <p className="text-neutral-800 dark:text-neutral-200 leading-relaxed text-lg font-semibold">
-                  Words of wisdom and vision from our dedicated Vice Chancellor, shaping the future of education and innovation through strategic leadership and academic excellence.
+                  Words of wisdom and vision from our dedicated Vice Chancellor, shaping the future of education and innovation through strategic leadership and academic excellence. With a focus on transformative learning experiences and cutting-edge research initiatives, the Vice Chancellor leads our institution towards becoming a global center of educational excellence.
                 </p>
               </div>
             </div>
