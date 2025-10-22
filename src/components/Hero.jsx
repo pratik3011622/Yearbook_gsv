@@ -85,7 +85,11 @@ export const Hero = ({ onNavigate }) => {
                 <button className="p-2 text-blue-200 hover:text-white transition-colors">
                   <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
-                <button className="p-2 text-blue-200 hover:text-white transition-colors">
+                <button
+                  onClick={() => window.open('https://www.instagram.com/gsv.vadodara?igsh=MWpqaWxhbXIycGQzcA==', '_blank')}
+                  className="p-2 text-blue-200 hover:text-white transition-colors"
+                  title="Follow us on Instagram"
+                >
                   <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
               </div>
