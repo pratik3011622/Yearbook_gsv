@@ -7,7 +7,7 @@ import { Testimonials } from '../components/Testimonials';
 import { Mail, ArrowUp } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
-export const HomePage = ({ onNavigate }) => {
+export const HomePage = ({ onNavigate, currentPage }) => {
   const [stats, setStats] = useState({});
   const [email, setEmail] = useState('');
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -49,87 +49,8 @@ export const HomePage = ({ onNavigate }) => {
 
   return (
     <div className="relative">
-      <Hero onNavigate={onNavigate} />
+      <Hero onNavigate={onNavigate} currentPage={currentPage} />
 
-      <section className="py-24 bg-gradient-to-br from-neutral-50 via-white to-neutral-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center space-x-2 bg-primary-100 dark:bg-primary-900/30 px-4 py-2 rounded-full mb-6">
-              <span className="text-primary-700 dark:text-primary-300 text-sm font-medium">Leadership</span>
-            </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-neutral-900 dark:text-white mb-6 leading-tight">
-              Messages from Leadership
-            </h2>
-            <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-              Inspiring words from our esteemed Chancellor and Vice Chancellor guiding our community forward
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-            <div className="group bg-white dark:bg-neutral-800 rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:rotate-y-2 border border-neutral-200 dark:border-neutral-700 transform-gpu">
-              <div className="aspect-[4/3] bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 flex items-center justify-center p-4 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent"></div>
-                <img
-                  src="/Screenshot 2025-10-21 211940.png"
-                  alt="Message from Chancellor"
-                  className="w-full h-full object-cover rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-500 transform-gpu"
-                  style={{ transformStyle: 'preserve-3d' }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <div className="p-8 transform-gpu">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-14 h-14 bg-primary-500 rounded-full flex items-center justify-center shadow-lg transform-gpu">
-                    <span className="text-white font-bold text-xl">C</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
-                      Chancellor
-                    </h3>
-                    <p className="text-primary-600 dark:text-primary-400 text-base font-medium">
-                      Gati Shakti Vishwavidyalaya
-                    </p>
-                  </div>
-                </div>
-                <p className="text-neutral-800 dark:text-neutral-200 leading-relaxed text-lg font-semibold">
-                  A message of inspiration and guidance from our esteemed Chancellor, leading our institution with vision and dedication to foster excellence in education and innovation. Through strategic leadership and unwavering commitment, the Chancellor continues to drive our university towards new heights of academic excellence and global recognition.
-                </p>
-              </div>
-            </div>
-
-            <div className="group bg-white dark:bg-neutral-800 rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:-rotate-y-2 border border-neutral-200 dark:border-neutral-700 transform-gpu">
-              <div className="aspect-[4/3] bg-gradient-to-br from-accent-50 to-accent-100 dark:from-accent-900/20 dark:to-accent-800/20 flex items-center justify-center p-4 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-500/5 to-transparent"></div>
-                <img
-                  src="/Screenshot 2025-10-21 212003.png"
-                  alt="Message from Vice Chancellor"
-                  className="w-full h-full object-cover rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-500 transform-gpu"
-                  style={{ transformStyle: 'preserve-3d' }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <div className="p-8 transform-gpu">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-14 h-14 bg-accent-500 rounded-full flex items-center justify-center shadow-lg transform-gpu">
-                    <span className="text-white font-bold text-xl">VC</span>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">
-                      Vice Chancellor
-                    </h3>
-                    <p className="text-accent-600 dark:text-accent-400 text-base font-medium">
-                      Gati Shakti Vishwavidyalaya
-                    </p>
-                  </div>
-                </div>
-                <p className="text-neutral-800 dark:text-neutral-200 leading-relaxed text-lg font-semibold">
-                  Words of wisdom and vision from our dedicated Vice Chancellor, shaping the future of education and innovation through strategic leadership and academic excellence. With a focus on transformative learning experiences and cutting-edge research initiatives, the Vice Chancellor leads our institution towards becoming a global center of educational excellence.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <div className="relative">
         <StatsCounter stats={stats} />

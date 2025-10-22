@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Share2, Facebook, Twitter, Linkedin, Instagram, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Share2, Facebook, Twitter, Linkedin, Instagram, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 
 const heroSlides = [
   {
@@ -15,6 +15,7 @@ const heroSlides = [
 export const Hero = ({ onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,8 +33,18 @@ export const Hero = ({ onNavigate }) => {
       });
     };
 
+    const handleClickOutside = (e) => {
+      if (!e.target.closest('.about-dropdown')) {
+        setIsAboutDropdownOpen(false);
+      }
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('click', handleClickOutside);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('click', handleClickOutside);
+    };
   }, []);
 
   const nextSlide = () => {
@@ -139,6 +150,79 @@ export const Hero = ({ onNavigate }) => {
               <button onClick={() => onNavigate('directory')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-sm sm:text-lg px-4 sm:px-5 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Directory</button>
               <button onClick={() => onNavigate('events')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-sm sm:text-lg px-4 sm:px-5 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Events</button>
               <button onClick={() => onNavigate('stories')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-sm sm:text-lg px-4 sm:px-5 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Stories</button>
+
+              {/* About Dropdown */}
+              <div className="relative about-dropdown">
+                <button
+                  onClick={() => setIsAboutDropdownOpen(!isAboutDropdownOpen)}
+                  className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-sm sm:text-lg px-4 sm:px-5 py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105 flex items-center space-x-1"
+                >
+                  <span>About</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isAboutDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {/* Dropdown Menu - Positioned to overlay slideshow */}
+                {isAboutDropdownOpen && (
+                  <div className="fixed top-24 left-1/2 -translate-x-1/2 w-96 bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 overflow-hidden z-[70]">
+                    <div className="py-3">
+                      <button
+                        onClick={() => {
+                          onNavigate('vision-mission');
+                          setIsAboutDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-6 py-5 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-700 transition-all duration-200 flex items-center space-x-4 group"
+                      >
+                        <div className="w-14 h-14 bg-blue-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                          <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-xl">Vision & Mission</div>
+                          <div className="text-sm text-gray-500">Our goals and objectives</div>
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          onNavigate('leadership');
+                          setIsAboutDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-6 py-5 text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-200 flex items-center space-x-4 group"
+                      >
+                        <div className="w-14 h-14 bg-purple-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                          <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-xl">Leadership Messages</div>
+                          <div className="text-sm text-gray-500">Words from our leaders</div>
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          onNavigate('team');
+                          setIsAboutDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-6 py-5 text-gray-700 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 hover:text-orange-700 transition-all duration-200 flex items-center space-x-4 group"
+                      >
+                        <div className="w-14 h-14 bg-orange-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                          <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-xl">Our Team</div>
+                          <div className="text-sm text-gray-500">Meet our dedicated team</div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </nav>
           </div>
         </div>
