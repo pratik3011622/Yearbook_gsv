@@ -61,10 +61,14 @@ export const RegisterPage = ({ onNavigate }) => {
       <div className="max-w-2xl mx-auto px-4">
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-600 to-amber-500 rounded-full mb-4 shadow-lg">
-            <GraduationCap className="w-10 h-10 text-white" />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/d/d2/Gati_Shakti_Vishwavidyalaya_Logo.png"
+              alt="GSV Logo"
+              className="w-12 h-12 rounded-full object-contain"
+            />
           </div>
           <h1 className="text-4xl font-serif font-bold text-slate-900 dark:text-white mb-2">
-            Join AlumniVerse
+            Join GSVConnect
           </h1>
           <p className="text-slate-600 dark:text-slate-400">
             Create your account and reconnect with your college community
@@ -312,12 +316,17 @@ export const RegisterPage = ({ onNavigate }) => {
           </div>
         </div>
 
-        <button
-          onClick={() => onNavigate('home')}
-          className="mt-6 w-full py-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
-        >
-          Back to Home
-        </button>
+        <div className="mt-6 text-center">
+          <button
+            onClick={() => onNavigate('home')}
+            className="inline-flex items-center space-x-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            <span className="font-medium">Back to Home</span>
+          </button>
+        </div>
       </div>
     </div>
   );

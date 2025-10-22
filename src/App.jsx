@@ -29,7 +29,11 @@ function App() {
       case 'login':
         return <LoginPage onNavigate={handleNavigate} />;
       case 'register':
-        return <RegisterPage onNavigate={handleNavigate} />;
+        return (
+          <div className="min-h-screen">
+            <RegisterPage onNavigate={handleNavigate} />
+          </div>
+        );
       case 'directory':
         return (
           <div className="min-h-screen">
@@ -261,7 +265,7 @@ function App() {
               {/* Additional Content Sections */}
               <div className="mt-16 space-y-12">
                 {/* Core Values */}
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
                   <div className="p-8">
                     <h3 className="text-3xl font-bold text-slate-900 mb-8 text-center">
                       Core Values
@@ -386,7 +390,7 @@ function App() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 max-w-7xl mx-auto">
                 {/* Chancellor Section */}
                 <div className="flex flex-col h-full">
-                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 flex-1 flex flex-col">
+                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex-1 flex flex-col">
                     <div className="h-64 sm:h-72 lg:h-80 bg-gradient-to-br from-blue-50 to-blue-100 relative overflow-hidden flex-shrink-0">
                       <img
                         src="https://indiapressrelease.com/wp-content/uploads/2022/02/IT-Minister-Shri-Ashwini-Vaishnaw-to-release-National-Strategy-on-Additive-Manufacturing-tomorrow.jpg"
@@ -425,9 +429,9 @@ function App() {
                   <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 flex-1 flex flex-col">
                     <div className="h-64 sm:h-72 lg:h-80 bg-gradient-to-br from-purple-50 to-purple-100 relative overflow-hidden flex-shrink-0">
                       <img
-                        src="https://gsv.ac.in/wp-content/uploads/2023/01/author.jpg"
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUG1QCmh58L_dw5Q9kEm7IfoyFTuSQgWF5M67lYp-bWbyE0WrT3MpT2N4sLdoChVTtDc7eaG-pz8sFqulZtVrHFl_g1U1_0UTUhkJUbczPc870VGGBHoq1cnGuHFchJ2HONauto0Xn2RM3dRtphDc880Jz1BvjKyxapfeLM2in_Zhq236_GTYmTGC8gAo/w178-h200/Manoj%20Choudhary.png"
                         alt="Vice Chancellor Prof. Manoj Choudhary"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain object-center"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>

@@ -11,7 +11,7 @@ const heroSlides = [
     alt: 'GSV Campus Life'
   },
   {
-    image: '/WhatsApp Image 2025-10-21 at 23.04.12_fe095883.jpg',
+    image: '/_DKK5312.JPG',
     alt: 'GSV Community and Events'
   }
 ];
