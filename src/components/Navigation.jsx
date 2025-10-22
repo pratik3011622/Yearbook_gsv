@@ -52,15 +52,17 @@ export const Navigation = ({ onNavigate, currentPage }) => {
             onClick={() => onNavigate('home')}
           >
             <div className="relative">
-              <GraduationCap className={`w-10 h-10 relative z-10 group-hover:rotate-12 transition-all duration-300 ${
-                currentPage === 'home' && !isScrolled ? 'text-white' : 'text-primary-900'
-              }`} />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/d/d2/Gati_Shakti_Vishwavidyalaya_Logo.png"
+                alt="Gati Shakti Vishwavidyalaya Logo"
+                className="w-10 h-10 relative z-10 group-hover:scale-110 transition-all duration-300 object-contain"
+              />
             </div>
             <div>
               <h1 className={`text-2xl font-bold transition-colors duration-300 ${
-                currentPage === 'home' && !isScrolled ? 'text-white' : 'text-primary-900'
+                currentPage === 'home' && !isScrolled ? 'text-white drop-shadow-lg' : 'text-gray-900'
               }`}>
-                AlumniVerse
+                GSVConnect
               </h1>
               <p className={`text-xs font-medium transition-colors duration-300 ${
                 currentPage === 'home' && !isScrolled ? 'text-white/80' : 'text-neutral-600'

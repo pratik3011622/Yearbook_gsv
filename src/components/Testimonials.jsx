@@ -1,34 +1,34 @@
 import { useState, useEffect } from 'react';
-import { Quote } from 'lucide-react';
+import { Quote, User } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Priya Sharma',
-    batch: 'Class of 2015',
-    role: 'Software Engineer at Google',
+    name: 'Arjun Patel',
+    batch: 'B.Tech 2019',
+    role: 'Software Engineer at Infosys',
     image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400',
-    quote: 'AlumniVerse helped me reconnect with my batch mates after years. The mentorship program has been invaluable in giving back to current students.',
+    quote: 'GSV gave me the foundation for my tech career. AlumniVerse helped me stay connected with my professors and batchmates. The coding workshops and placement guidance were game-changers!',
   },
   {
-    name: 'Rahul Verma',
-    batch: 'Class of 2012',
-    role: 'Entrepreneur & Startup Founder',
-    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
-    quote: 'This platform has become the bridge between our college memories and professional networking. I found my co-founder through AlumniVerse!',
-  },
-  {
-    name: 'Anjali Mehta',
-    batch: 'Class of 2018',
-    role: 'Marketing Manager at Microsoft',
+    name: 'Sneha Gupta',
+    batch: 'B.Tech 2020',
+    role: 'Civil Engineer at L&T',
     image: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=400',
-    quote: 'The job board feature helped me find amazing opportunities. Now I regularly post openings from my company to help fellow alumni.',
+    quote: 'The infrastructure projects at GSV prepared me for real-world challenges. Through AlumniVerse, I mentor current civil engineering students and share industry insights from my work on metro rail projects.',
   },
   {
-    name: 'Vikram Singh',
-    batch: 'Class of 2010',
-    role: 'Investment Banker',
+    name: 'Rohit Kumar',
+    batch: 'B.Tech 2018',
+    role: 'Data Scientist at TCS',
+     image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
+    quote: 'GSV\'s mathematics and computer science curriculum built my analytical foundation. AlumniVerse connected me with alumni working in AI/ML, and now I contribute to the data science mentorship program.',
+  },
+  {
+    name: 'Kavita Singh',
+    batch: 'B.Tech 2017',
+    role: 'Electrical Engineer at BHEL',
     image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400',
-    quote: 'Attending the annual reunion organized through this platform was a dream come true. The nostalgia and connections are priceless.',
+    quote: 'The hands-on electrical engineering labs at GSV were incredible. AlumniVerse helped me find my current role in renewable energy projects, and I regularly participate in technical webinars for current students.',
   },
 ];
 
@@ -51,7 +51,7 @@ export const Testimonials = () => {
             Voices of Our Community
           </h2>
           <p className="text-xl text-neutral-600">
-            Hear what alumni have to say about their AlumniVerse experience
+            Hear what Gati Shakti Vishwavidyalaya alumni have to say about their journey and GSVConnect experience
           </p>
         </div>
 
@@ -73,11 +73,9 @@ export const Testimonials = () => {
 
                   <div className="relative z-10">
                     <div className="flex items-center space-x-6 mb-8">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-20 h-20 rounded-full object-cover border-4 border-primary-500 shadow-medium"
-                      />
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-slate-200 to-slate-300 border-4 border-slate-400 shadow-medium flex items-center justify-center">
+                        <User className="w-10 h-10 text-slate-600" />
+                      </div>
                       <div>
                         <h3 className="text-2xl font-bold text-neutral-900">
                           {testimonial.name}

@@ -72,7 +72,7 @@ export const HomePage = ({ onNavigate }) => {
                 <img
                   src="/Screenshot 2025-10-21 211940.png"
                   alt="Message from Chancellor"
-                  className="w-full h-full object-contain max-w-full max-h-full rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-500 transform-gpu"
+                  className="w-full h-full object-contain max-w-full max-h-full rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500 transform-gpu scale-150"
                   style={{ transformStyle: 'preserve-3d' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -103,7 +103,7 @@ export const HomePage = ({ onNavigate }) => {
                 <img
                   src="/Screenshot 2025-10-21 212003.png"
                   alt="Message from Vice Chancellor"
-                  className="w-full h-full object-contain max-w-full max-h-full rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-500 transform-gpu"
+                  className="w-full h-full object-contain max-w-full max-h-full rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-500 transform-gpu scale-150"
                   style={{ transformStyle: 'preserve-3d' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -190,8 +190,8 @@ export const HomePage = ({ onNavigate }) => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="md:col-span-1">
-              <h3 className="text-3xl font-serif font-bold mb-6 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
-                AlumniVerse
+              <h3 className="text-3xl font-serif font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                GSVConnect
               </h3>
               <p className="text-neutral-400 text-base leading-relaxed mb-6">
                 Where Memories Meet Futures. Connecting Gati Shakti Vishwavidyalaya alumni worldwide.
@@ -283,7 +283,7 @@ export const HomePage = ({ onNavigate }) => {
                 onClick={() => onNavigate('register')}
                 className="w-full px-8 py-4 bg-gradient-to-r from-primary-600 to-accent-500 text-white rounded-2xl font-semibold text-base hover:shadow-lg hover:shadow-primary-500/25 transition-all hover:scale-105 hover:from-primary-700 hover:to-accent-600"
               >
-                Join AlumniVerse
+                Join GSVConnect
               </button>
             </div>
           </div>

@@ -55,7 +55,7 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
-          <Navigation onNavigate={handleNavigate} currentPage={currentPage} />
+          {currentPage !== 'home' && <Navigation onNavigate={handleNavigate} currentPage={currentPage} />}
           {renderPage()}
         </div>
       </AuthProvider>
