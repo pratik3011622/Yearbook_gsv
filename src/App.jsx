@@ -167,13 +167,26 @@ function App() {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-              <div className="text-center mb-12">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-900 mb-6 leading-tight">
-                  Vision & Mission
-                </h1>
-                <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                  Our guiding principles and commitment to excellence in transportation and logistics education
-                </p>
+              {/* Hero Banner Image */}
+              <div className="mb-16">
+                <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src="https://corporate.apollotyres.com/content/dam/orbit/apollo-corporate/sustainability-and-ethics/health--safety-_-environment/health-_-safety/vision-_-mission/Vision%20and%20Mission%20-%20Banner%20image.jpg"
+                    alt="Vision and Mission - Excellence in Transportation and Logistics"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-purple-900/70 to-indigo-900/80"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-white max-w-4xl px-6">
+                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight">
+                        Vision & Mission
+                      </h1>
+                      <p className="text-xl sm:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                        Our guiding principles and commitment to excellence in transportation and logistics education
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">

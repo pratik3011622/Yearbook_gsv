@@ -9,6 +9,10 @@ const heroSlides = [
   {
     image: 'https://gsv.ac.in/wp-content/uploads/slider/cache/8bef1522bf9985ed15004d1a5d70af15/BOSS0373-scaled.jpg',
     alt: 'GSV Campus Life'
+  },
+  {
+    image: '/WhatsApp Image 2025-10-21 at 23.04.12_fe095883.jpg',
+    alt: 'GSV Community and Events'
   }
 ];
 
