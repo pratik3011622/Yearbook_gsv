@@ -4,6 +4,7 @@ import { StatsCounter } from '../components/StatsCounter';
 import { FeatureHighlights } from '../components/FeatureHighlights';
 import { ThisDayWidget } from '../components/ThisDayWidget';
 import { Testimonials } from '../components/Testimonials';
+import { ContactSection } from '../components/ContactSection';
 import { Mail, ArrowUp } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
@@ -57,6 +58,7 @@ export const HomePage = ({ onNavigate, currentPage }) => {
         <FeatureHighlights onNavigate={onNavigate} />
         <ThisDayWidget />
         <Testimonials />
+        <ContactSection />
       </div>
 
       <section className="py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white relative overflow-hidden">
