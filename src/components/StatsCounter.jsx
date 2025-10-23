@@ -54,10 +54,10 @@ export const StatsCounter = ({ stats }) => {
     };
   }, []);
 
-  const alumniCount = useCountUp(stats.total_alumni || 1250, 2000, isVisible);
-  const countriesCount = useCountUp(stats.total_countries || 35, 2000, isVisible);
-  const eventsCount = useCountUp(stats.total_events || 150, 2000, isVisible);
-  const jobsCount = useCountUp(stats.total_jobs || 420, 2000, isVisible);
+  const alumniCount = useCountUp(stats.total_alumni || 550, 2000, isVisible);
+  const countriesCount = useCountUp(stats.total_countries || 10, 2000, isVisible);
+  const eventsCount = useCountUp(stats.total_events || 95, 2000, isVisible);
+  const jobsCount = useCountUp(stats.total_jobs || 280, 2000, isVisible);
 
   const statsData = [
     {
