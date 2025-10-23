@@ -44,13 +44,13 @@ export const Testimonials = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-neutral-50">
+    <section className="py-20 bg-neutral-50 dark:bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-neutral-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-neutral-900 dark:text-gray-100 mb-4">
             Voices of Our Community
           </h2>
-          <p className="text-xl text-neutral-600">
+          <p className="text-xl text-neutral-600 dark:text-gray-300">
             Hear what Gati Shakti Vishwavidyalaya alumni have to say about their journey and GSVConnect experience
           </p>
         </div>
@@ -77,19 +77,19 @@ export const Testimonials = () => {
                         <User className="w-10 h-10 text-slate-600" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold text-neutral-900">
+                        <h3 className="text-2xl font-bold text-neutral-900 dark:text-gray-100">
                           {testimonial.name}
                         </h3>
-                        <p className="text-primary-600 font-medium">
+                        <p className="text-primary-600 dark:text-primary-400 font-medium">
                           {testimonial.batch}
                         </p>
-                        <p className="text-neutral-600 text-sm">
+                        <p className="text-neutral-600 dark:text-gray-400 text-sm">
                           {testimonial.role}
                         </p>
                       </div>
                     </div>
 
-                    <p className="text-xl text-neutral-700 leading-relaxed italic">
+                    <p className="text-xl text-neutral-700 dark:text-gray-300 leading-relaxed italic">
                       "{testimonial.quote}"
                     </p>
                   </div>

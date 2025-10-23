@@ -71,7 +71,7 @@ export const HomePage = ({ onNavigate, currentPage }) => {
             <Mail className="w-5 h-5 text-accent-400" />
             <span className="font-medium">Stay Updated</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
             Stay Connected
           </h2>
           <p className="text-xl text-primary-100 mb-12 max-w-2xl mx-auto leading-relaxed">
@@ -111,10 +111,10 @@ export const HomePage = ({ onNavigate, currentPage }) => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="md:col-span-1">
-              <h3 className="text-3xl font-serif font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <h3 className="text-3xl font-serif font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:text-white">
                 GSVConnect
               </h3>
-              <p className="text-neutral-400 text-base leading-relaxed mb-6">
+              <p className="text-neutral-400 dark:text-neutral-300 text-base leading-relaxed mb-6">
                 Where Memories Meet Futures. Connecting Gati Shakti Vishwavidyalaya alumni worldwide.
               </p>
               <div className="flex space-x-4">
@@ -155,8 +155,8 @@ export const HomePage = ({ onNavigate, currentPage }) => {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-6 text-lg text-white">Quick Links</h4>
-              <ul className="space-y-3 text-neutral-400">
+              <h4 className="font-semibold mb-6 text-lg text-white dark:text-gray-100">Quick Links</h4>
+              <ul className="space-y-3 text-neutral-400 dark:text-neutral-300">
                 <li>
                   <button onClick={() => onNavigate('directory')} className="hover:text-white transition-colors text-base hover:translate-x-1 transform duration-200">
                     Alumni Directory
@@ -176,8 +176,8 @@ export const HomePage = ({ onNavigate, currentPage }) => {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-6 text-lg text-white">Community</h4>
-              <ul className="space-y-3 text-neutral-400">
+              <h4 className="font-semibold mb-6 text-lg text-white dark:text-gray-100">Community</h4>
+              <ul className="space-y-3 text-neutral-400 dark:text-neutral-300">
                 <li>
                   <button onClick={() => onNavigate('mentorship')} className="hover:text-white transition-colors text-base hover:translate-x-1 transform duration-200">
                     Mentorship Program
@@ -197,8 +197,8 @@ export const HomePage = ({ onNavigate, currentPage }) => {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-6 text-lg text-white">Get Started</h4>
-              <p className="text-neutral-400 text-base mb-6 leading-relaxed">
+              <h4 className="font-semibold mb-6 text-lg text-white dark:text-gray-100">Get Started</h4>
+              <p className="text-neutral-400 dark:text-neutral-300 text-base mb-6 leading-relaxed">
                 Join our vibrant community today and start building meaningful connections.
               </p>
               <button
@@ -212,10 +212,10 @@ export const HomePage = ({ onNavigate, currentPage }) => {
 
           <div className="border-t border-neutral-800 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="text-neutral-400 text-base">
+              <p className="text-neutral-400 dark:text-neutral-300 text-base">
                 &copy; 2025 AlumniVerse. All rights reserved.
               </p>
-              <div className="flex space-x-6 text-sm text-neutral-500">
+              <div className="flex space-x-6 text-sm text-neutral-500 dark:text-neutral-400">
                 <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                 <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
                 <a href="#" className="hover:text-white transition-colors">Contact Us</a>

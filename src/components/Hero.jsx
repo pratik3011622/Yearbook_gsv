@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Share2, Facebook, Twitter, Linkedin, Instagram, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
+import { Share2, Facebook, Twitter, Linkedin, Instagram, ChevronLeft, ChevronRight, ChevronDown, Moon, Sun } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const heroSlides = [
   {
@@ -20,6 +21,7 @@ export const Hero = ({ onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -62,7 +64,7 @@ export const Hero = ({ onNavigate }) => {
   return (
     <div className="relative">
       {/* Top Navigation Bar - Ultimate Premium Theme */}
-      <div className="bg-gradient-to-r from-indigo-700 via-purple-700 via-pink-600 to-blue-700 shadow-2xl border-b border-indigo-400 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-indigo-900 via-purple-800 via-pink-700 to-cyan-800 animate-glow shadow-2xl border-b border-indigo-400 relative overflow-hidden">
         {/* Animated background particles */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-2 left-10 w-2 h-2 bg-white rounded-full animate-pulse"></div>
@@ -167,14 +169,14 @@ export const Hero = ({ onNavigate }) => {
 
                 {/* Dropdown Menu - Positioned to overlay slideshow */}
                 {isAboutDropdownOpen && (
-                  <div className="fixed top-20 sm:top-24 left-1/2 -translate-x-1/2 w-80 sm:w-96 bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 overflow-hidden z-[70]">
+                  <div className="fixed top-20 sm:top-24 left-1/2 -translate-x-1/2 w-80 sm:w-96 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 dark:border-gray-700 overflow-hidden z-[70]">
                     <div className="py-2 sm:py-3">
                       <button
                         onClick={() => {
                           onNavigate('vision-mission');
                           setIsAboutDropdownOpen(false);
                         }}
-                        className="w-full text-left px-4 sm:px-6 py-3 sm:py-5 text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-700 transition-all duration-200 flex items-center space-x-3 sm:space-x-4 group"
+                        className="w-full text-left px-4 sm:px-6 py-3 sm:py-5 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-blue-50 dark:hover:from-blue-900/20 hover:to-purple-50 dark:hover:to-purple-900/20 hover:text-blue-700 dark:hover:text-blue-400 transition-all duration-200 flex items-center space-x-3 sm:space-x-4 group"
                       >
                         <div className="w-10 h-10 sm:w-14 sm:h-14 bg-blue-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                           <svg className="w-5 h-5 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -183,8 +185,8 @@ export const Hero = ({ onNavigate }) => {
                           </svg>
                         </div>
                         <div>
-                          <div className="font-semibold text-lg sm:text-xl">Vision & Mission</div>
-                          <div className="text-xs sm:text-sm text-gray-500">Our goals and objectives</div>
+                          <div className="font-semibold text-lg sm:text-xl text-gray-900 dark:text-gray-100">Vision & Mission</div>
+                          <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Our goals and objectives</div>
                         </div>
                       </button>
 
@@ -193,7 +195,7 @@ export const Hero = ({ onNavigate }) => {
                           onNavigate('leadership');
                           setIsAboutDropdownOpen(false);
                         }}
-                        className="w-full text-left px-4 sm:px-6 py-3 sm:py-5 text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-200 flex items-center space-x-3 sm:space-x-4 group"
+                        className="w-full text-left px-4 sm:px-6 py-3 sm:py-5 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-purple-50 dark:hover:from-purple-900/20 hover:to-pink-50 dark:hover:to-pink-900/20 hover:text-purple-700 dark:hover:text-purple-400 transition-all duration-200 flex items-center space-x-3 sm:space-x-4 group"
                       >
                         <div className="w-10 h-10 sm:w-14 sm:h-14 bg-purple-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                           <svg className="w-5 h-5 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -201,8 +203,8 @@ export const Hero = ({ onNavigate }) => {
                           </svg>
                         </div>
                         <div>
-                          <div className="font-semibold text-lg sm:text-xl">Leadership Messages</div>
-                          <div className="text-xs sm:text-sm text-gray-500">Words from our leaders</div>
+                          <div className="font-semibold text-lg sm:text-xl text-gray-900 dark:text-gray-100">Leadership Messages</div>
+                          <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Words from our leaders</div>
                         </div>
                       </button>
 
@@ -211,7 +213,7 @@ export const Hero = ({ onNavigate }) => {
                           onNavigate('team');
                           setIsAboutDropdownOpen(false);
                         }}
-                        className="w-full text-left px-4 sm:px-6 py-3 sm:py-5 text-gray-700 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 hover:text-orange-700 transition-all duration-200 flex items-center space-x-3 sm:space-x-4 group"
+                        className="w-full text-left px-4 sm:px-6 py-3 sm:py-5 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-orange-50 dark:hover:from-orange-900/20 hover:to-red-50 dark:hover:to-red-900/20 hover:text-orange-700 dark:hover:text-orange-400 transition-all duration-200 flex items-center space-x-3 sm:space-x-4 group"
                       >
                         <div className="w-10 h-10 sm:w-14 sm:h-14 bg-orange-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                           <svg className="w-5 h-5 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -219,8 +221,8 @@ export const Hero = ({ onNavigate }) => {
                           </svg>
                         </div>
                         <div>
-                          <div className="font-semibold text-lg sm:text-xl">Our Team</div>
-                          <div className="text-xs sm:text-sm text-gray-500">Meet our dedicated team</div>
+                          <div className="font-semibold text-lg sm:text-xl text-gray-900 dark:text-gray-100">Our Team</div>
+                          <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Meet our dedicated team</div>
                         </div>
                       </button>
                     </div>
@@ -287,15 +289,15 @@ export const Hero = ({ onNavigate }) => {
       </div>
 
       {/* Content Section Below Slideshow - Responsive */}
-      <div className="bg-white py-6 sm:py-8 lg:py-12 xl:py-16">
+      <div className="bg-white dark:bg-gray-900 py-6 sm:py-8 lg:py-12 xl:py-16">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-gray-900 mb-3 sm:mb-4 lg:mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-3 sm:mb-4 lg:mb-6 leading-tight">
               Gati Shakti Vishwavidyalaya
               <br />
-              <span className="text-blue-600">Alumni Network</span>
+              <span className="text-blue-600 dark:text-blue-400">Alumni Network</span>
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-600 mb-4 sm:mb-6 lg:mb-8 max-w-3xl mx-auto leading-relaxed px-2 sm:px-4">
+            <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 lg:mb-8 max-w-3xl mx-auto leading-relaxed px-2 sm:px-4">
               Connect with fellow alumni, share experiences, and build lifelong relationships that transcend time and distance.
             </p>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4 justify-center items-center px-2 sm:px-4">
@@ -307,7 +309,7 @@ export const Hero = ({ onNavigate }) => {
               </button>
               <button
                 onClick={() => onNavigate('register')}
-                className="w-full sm:w-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors font-semibold text-sm sm:text-base lg:text-lg"
+                className="w-full sm:w-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-semibold text-sm sm:text-base lg:text-lg"
               >
                 Join Community
               </button>

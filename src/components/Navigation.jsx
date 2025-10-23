@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, GraduationCap } from 'lucide-react';
+import { Menu, X, GraduationCap, Moon, Sun } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 export const Navigation = ({ onNavigate, currentPage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { user, profile, signOut } = useAuth();
+  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,8 +43,8 @@ export const Navigation = ({ onNavigate, currentPage }) => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         currentPage === 'home' && !isScrolled
-          ? 'bg-white/10 backdrop-blur-md' // Only transparent on home page when not scrolled
-          : 'bg-white/95 backdrop-blur-xl shadow-medium' // Solid background on all other pages and when scrolled
+          ? 'bg-white/10 backdrop-blur-md dark:bg-black/20' // Only transparent on home page when not scrolled
+          : 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-medium' // Solid background on all other pages and when scrolled
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,12 +64,12 @@ export const Navigation = ({ onNavigate, currentPage }) => {
             </div>
             <div>
               <h1 className={`text-2xl font-bold transition-colors duration-300 ${
-                currentPage === 'home' && !isScrolled ? 'text-white drop-shadow-lg' : 'text-gray-900'
+                currentPage === 'home' && !isScrolled ? 'text-white drop-shadow-lg' : 'text-gray-900 dark:text-gray-100'
               }`}>
                 GSVConnect
               </h1>
               <p className={`text-xs font-medium transition-colors duration-300 ${
-                currentPage === 'home' && !isScrolled ? 'text-white/80' : 'text-neutral-600'
+                currentPage === 'home' && !isScrolled ? 'text-white/80' : 'text-neutral-600 dark:text-neutral-300'
               }`}>
                 Where Memories Meet Futures
               </p>
@@ -86,7 +88,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
                       : 'bg-primary-900 text-white shadow-soft'
                     : currentPage === 'home' && !isScrolled
                     ? 'text-white/90 hover:bg-white/20 hover:text-white'
-                    : 'text-neutral-700 hover:bg-primary-50 hover:text-primary-900'
+                    : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-900 dark:hover:text-primary-100'
                 }`}
               >
                 {item.label}
@@ -95,17 +97,28 @@ export const Navigation = ({ onNavigate, currentPage }) => {
           </div>
 
           <div className="flex items-center space-x-4">
+            <button
+              onClick={toggleTheme}
+              className={`lg:hidden p-2 rounded-xl transition-all duration-300 ${
+                currentPage === 'home' && !isScrolled
+                  ? 'bg-white/20 hover:bg-white/30'
+                  : 'bg-neutral-100 dark:bg-gray-800 hover:bg-neutral-200 dark:hover:bg-gray-700'
+              }`}
+              title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            >
+              {isDark ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+            </button>
 
-            {user ? (
+          {user ? (
               <div className="hidden lg:flex items-center space-x-3">
                 <div className="text-right">
                   <p className={`text-sm font-medium transition-colors duration-300 ${
-                    currentPage === 'home' && !isScrolled ? 'text-white' : 'text-neutral-800'
+                    currentPage === 'home' && !isScrolled ? 'text-white' : 'text-neutral-800 dark:text-neutral-200'
                   }`}>
                     {profile?.full_name || 'User'}
                   </p>
                   <p className={`text-xs transition-colors duration-300 ${
-                    currentPage === 'home' && !isScrolled ? 'text-white/80' : 'text-neutral-600'
+                    currentPage === 'home' && !isScrolled ? 'text-white/80' : 'text-neutral-600 dark:text-neutral-400'
                   }`}>
                     {profile?.user_type === 'alumni' ? 'Alumni' : 'Student'}
                   </p>
@@ -124,7 +137,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
                   className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 ${
                     currentPage === 'home' && !isScrolled
                       ? 'text-white/90 hover:bg-white/20 hover:text-white'
-                      : 'text-neutral-700 hover:bg-primary-50 hover:text-primary-900'
+                      : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-900 dark:hover:text-primary-100'
                   }`}
                 >
                   Sign In
@@ -139,6 +152,17 @@ export const Navigation = ({ onNavigate, currentPage }) => {
                 >
                   Join Now
                 </button>
+                <button
+                  onClick={toggleTheme}
+                  className={`p-2 rounded-xl font-medium text-sm transition-all duration-300 ${
+                    currentPage === 'home' && !isScrolled
+                      ? 'text-white/90 hover:bg-white/20 hover:text-white'
+                      : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-900 dark:hover:text-primary-100'
+                  }`}
+                  title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                >
+                  {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                </button>
               </div>
             )}
 
@@ -147,16 +171,16 @@ export const Navigation = ({ onNavigate, currentPage }) => {
               className={`lg:hidden p-2 rounded-xl transition-all duration-300 ${
                 currentPage === 'home' && !isScrolled
                   ? 'bg-white/20 hover:bg-white/30'
-                  : 'bg-neutral-100 hover:bg-neutral-200'
+                  : 'bg-neutral-100 dark:bg-gray-800 hover:bg-neutral-200 dark:hover:bg-gray-700'
               }`}
             >
               {isMobileMenuOpen ? (
                 <X className={`w-6 h-6 transition-colors duration-300 ${
-                  currentPage === 'home' && !isScrolled ? 'text-white' : 'text-neutral-700'
+                  currentPage === 'home' && !isScrolled ? 'text-white' : 'text-neutral-700 dark:text-neutral-300'
                 }`} />
               ) : (
                 <Menu className={`w-6 h-6 transition-colors duration-300 ${
-                  currentPage === 'home' && !isScrolled ? 'text-white' : 'text-neutral-700'
+                  currentPage === 'home' && !isScrolled ? 'text-white' : 'text-neutral-700 dark:text-neutral-300'
                 }`} />
               )}
             </button>
@@ -168,7 +192,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
         <div className={`lg:hidden border-t shadow-medium transition-all duration-300 ${
           currentPage === 'home' && !isScrolled
             ? 'bg-white/95 backdrop-blur-md border-white/20'
-            : 'bg-white border-neutral-200'
+            : 'bg-white dark:bg-gray-900 border-neutral-200 dark:border-gray-700'
         }`}>
           <div className="px-4 py-4 space-y-2">
             {navItems.map((item) => (
@@ -181,7 +205,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
                 className={`block w-full text-left px-4 py-3 rounded-xl font-medium transition-all ${
                   currentPage === item.id
                     ? 'bg-primary-900 text-white'
-                    : 'text-neutral-700 hover:bg-primary-50'
+                    : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20'
                 }`}
               >
                 {item.label}
@@ -201,7 +225,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
                     onNavigate('login');
                     setIsMobileMenuOpen(false);
                   }}
-                  className="block w-full text-left px-4 py-3 text-primary-900 font-medium hover:bg-primary-50 rounded-xl"
+                  className="block w-full text-left px-4 py-3 text-primary-900 dark:text-primary-100 font-medium hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-xl"
                 >
                   Sign In
                 </button>

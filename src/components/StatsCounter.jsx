@@ -97,14 +97,14 @@ export const StatsCounter = ({ stats }) => {
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-gradient-to-br from-neutral-50 via-primary-50/30 to-accent-50/20"
+      className="py-20 bg-gradient-to-br from-neutral-50 via-primary-50/30 to-accent-50/20 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-neutral-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-neutral-900 dark:text-gray-100 mb-4">
             Growing Together
           </h2>
-          <p className="text-xl text-neutral-600">
+          <p className="text-xl text-neutral-600 dark:text-gray-300">
             Join thousands of alumni making an impact worldwide
           </p>
         </div>
@@ -129,7 +129,7 @@ export const StatsCounter = ({ stats }) => {
                     {stat.count.toLocaleString()}
                     {stat.count >= 100 && '+'}
                   </div>
-                  <div className="text-neutral-600 font-medium text-lg">
+                  <div className="text-neutral-600 dark:text-gray-300 font-medium text-lg">
                     {stat.label}
                   </div>
                 </div>

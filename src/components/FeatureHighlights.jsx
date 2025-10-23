@@ -59,13 +59,13 @@ export const FeatureHighlights = ({ onNavigate }) => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-neutral-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-neutral-900 dark:text-gray-100 mb-4">
             Everything You Need
           </h2>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+          <p className="text-xl text-neutral-600 dark:text-gray-300 max-w-3xl mx-auto">
             A comprehensive platform designed to keep our alumni community connected, engaged, and thriving
           </p>
         </div>
@@ -86,15 +86,15 @@ export const FeatureHighlights = ({ onNavigate }) => {
                   <Icon className={`w-8 h-8 ${feature.iconColor}`} />
                 </div>
 
-                <h3 className="text-2xl font-bold text-neutral-900 mb-3 group-hover:text-primary-900 transition-all duration-300">
+                <h3 className="text-2xl font-bold text-neutral-900 dark:text-gray-100 mb-3 group-hover:text-primary-900 dark:group-hover:text-primary-400 transition-all duration-300">
                   {feature.title}
                 </h3>
 
-                <p className="text-neutral-600 leading-relaxed mb-4">
+                <p className="text-neutral-600 dark:text-gray-300 leading-relaxed mb-4">
                   {feature.description}
                 </p>
 
-                <div className="flex items-center text-sm font-medium text-primary-900 group-hover:translate-x-2 transition-transform duration-300">
+                <div className="flex items-center text-sm font-medium text-primary-900 dark:text-primary-400 group-hover:translate-x-2 transition-transform duration-300">
                   Explore
                   <svg
                     className="w-4 h-4 ml-2"

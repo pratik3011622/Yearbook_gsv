@@ -59,7 +59,7 @@ export const ThisDayWidget = () => {
             <Calendar className="w-5 h-5 text-accent-400" />
             <span className="font-medium">This Day in College History</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Walk Down Memory Lane
           </h2>
         </div>
@@ -83,7 +83,7 @@ export const ThisDayWidget = () => {
                 <div className="text-accent-400 font-semibold text-sm mb-3">
                   {event.month} {event.day}
                 </div>
-                <h3 className="text-3xl font-bold mb-4">
+                <h3 className="text-3xl font-bold text-white mb-4">
                   {event.title}
                 </h3>
                 <p className="text-white/90 text-lg leading-relaxed">

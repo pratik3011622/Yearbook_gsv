@@ -156,12 +156,12 @@ function App() {
         );
       case 'vision-mission':
         return (
-          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
             {/* Back Button */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
               <button
                 onClick={() => handleNavigate('home')}
-                className="inline-flex items-center space-x-2 text-slate-600 hover:text-slate-900 transition-colors mb-8"
+                className="inline-flex items-center space-x-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 transition-colors mb-8"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -182,12 +182,12 @@ function App() {
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-purple-900/70 to-indigo-900/80"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center text-white max-w-4xl px-6">
-                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight">
-                        Vision & Mission
-                      </h1>
-                      <p className="text-xl sm:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-                        Our guiding principles and commitment to excellence in transportation and logistics education
-                      </p>
+                      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
+                          Vision & Mission
+                        </h1>
+                        <p className="text-xl sm:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                          Our guiding principles and commitment to excellence in transportation and logistics education
+                        </p>
                     </div>
                   </div>
                 </div>
@@ -195,7 +195,7 @@ function App() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
                 {/* Vision Section */}
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+                <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-700">
                   <div className="h-64 bg-gradient-to-br from-blue-50 to-blue-100 relative overflow-hidden flex items-center justify-center">
                     <div className="text-center text-blue-600">
                       <svg className="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -206,14 +206,14 @@ function App() {
                     </div>
                   </div>
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-6">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">
                       Vision
                     </h3>
                     <div className="prose prose-slate max-w-none">
-                      <p className="text-slate-700 leading-relaxed mb-4">
+                      <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
                         To be a world-class university in the field of transportation and logistics, recognized for excellence in teaching, research, and innovation, contributing significantly to the development of India's transportation sector and becoming a global leader in transportation education.
                       </p>
-                      <p className="text-slate-700 leading-relaxed">
+                      <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
                         Gati Shakti Vishwavidyalaya aspires to create an ecosystem that fosters innovation, entrepreneurship, and sustainable development in the transportation and logistics sector, while addressing the challenges of the 21st century.
                       </p>
                     </div>
@@ -221,7 +221,7 @@ function App() {
                 </div>
 
                 {/* Mission Section */}
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+                <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-700">
                   <div className="h-64 bg-gradient-to-br from-green-50 to-green-100 relative overflow-hidden flex items-center justify-center">
                     <div className="text-center text-green-600">
                       <svg className="w-20 h-20 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -231,11 +231,11 @@ function App() {
                     </div>
                   </div>
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-6">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">
                       Mission
                     </h3>
                     <div className="prose prose-slate max-w-none">
-                      <ul className="space-y-4 text-slate-700">
+                      <ul className="space-y-4 text-slate-700 dark:text-slate-300">
                         <li className="flex items-start space-x-3">
                           <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
                           <span>To provide high-quality education in transportation and logistics through innovative teaching methods, industry-relevant curriculum, and experiential learning.</span>
@@ -265,62 +265,62 @@ function App() {
               {/* Additional Content Sections */}
               <div className="mt-16 space-y-12">
                 {/* Core Values */}
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden">
                   <div className="p-8">
-                    <h3 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+                    <h3 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8 text-center">
                       Core Values
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                       <div className="text-center">
-                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                           </svg>
                         </div>
-                        <h4 className="text-xl font-semibold text-slate-900 mb-2">Innovation</h4>
-                        <p className="text-slate-600">Fostering creativity and technological advancement</p>
+                        <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Innovation</h4>
+                        <p className="text-slate-600 dark:text-slate-300">Fostering creativity and technological advancement</p>
                       </div>
                       <div className="text-center">
-                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </div>
-                        <h4 className="text-xl font-semibold text-slate-900 mb-2">Excellence</h4>
-                        <p className="text-slate-600">Striving for the highest standards in education</p>
+                        <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Excellence</h4>
+                        <p className="text-slate-600 dark:text-slate-300">Striving for the highest standards in education</p>
                       </div>
                       <div className="text-center">
-                        <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                           </svg>
                         </div>
-                        <h4 className="text-xl font-semibold text-slate-900 mb-2">Collaboration</h4>
-                        <p className="text-slate-600">Building partnerships for mutual growth</p>
+                        <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Collaboration</h4>
+                        <p className="text-slate-600 dark:text-slate-300">Building partnerships for mutual growth</p>
                       </div>
                       <div className="text-center">
-                        <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <svg className="w-8 h-8 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
                           </svg>
                         </div>
-                        <h4 className="text-xl font-semibold text-slate-900 mb-2">Sustainability</h4>
-                        <p className="text-slate-600">Promoting environmentally conscious practices</p>
+                        <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Sustainability</h4>
+                        <p className="text-slate-600 dark:text-slate-300">Promoting environmentally conscious practices</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Strategic Objectives */}
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+                <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-700">
                   <div className="p-8">
-                    <h3 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+                    <h3 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8 text-center">
                       Strategic Objectives
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div>
-                        <h4 className="text-xl font-semibold text-slate-900 mb-4">Academic Excellence</h4>
-                        <ul className="space-y-2 text-slate-700">
+                        <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">Academic Excellence</h4>
+                        <ul className="space-y-2 text-slate-700 dark:text-slate-300">
                           <li>• Develop industry-aligned curriculum</li>
                           <li>• Implement experiential learning programs</li>
                           <li>• Establish research centers of excellence</li>
@@ -328,8 +328,8 @@ function App() {
                         </ul>
                       </div>
                       <div>
-                        <h4 className="text-xl font-semibold text-slate-900 mb-4">Industry Integration</h4>
-                        <ul className="space-y-2 text-slate-700">
+                        <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">Industry Integration</h4>
+                        <ul className="space-y-2 text-slate-700 dark:text-slate-300">
                           <li>• Build strong industry partnerships</li>
                           <li>• Create internship and placement opportunities</li>
                           <li>• Develop executive education programs</li>
@@ -337,8 +337,8 @@ function App() {
                         </ul>
                       </div>
                       <div>
-                        <h4 className="text-xl font-semibold text-slate-900 mb-4">Research & Innovation</h4>
-                        <ul className="space-y-2 text-slate-700">
+                        <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">Research & Innovation</h4>
+                        <ul className="space-y-2 text-slate-700 dark:text-slate-300">
                           <li>• Conduct cutting-edge transportation research</li>
                           <li>• Develop sustainable mobility solutions</li>
                           <li>• Create intellectual property</li>
@@ -346,8 +346,8 @@ function App() {
                         </ul>
                       </div>
                       <div>
-                        <h4 className="text-xl font-semibold text-slate-900 mb-4">Global Leadership</h4>
-                        <ul className="space-y-2 text-slate-700">
+                        <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">Global Leadership</h4>
+                        <ul className="space-y-2 text-slate-700 dark:text-slate-300">
                           <li>• Establish international collaborations</li>
                           <li>• Participate in global conferences</li>
                           <li>• Attract international faculty and students</li>
@@ -363,12 +363,12 @@ function App() {
         );
       case 'leadership':
         return (
-          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+          <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
             {/* Back Button */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
               <button
                 onClick={() => handleNavigate('home')}
-                className="inline-flex items-center space-x-2 text-slate-600 hover:text-slate-900 transition-colors mb-8"
+                className="inline-flex items-center space-x-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 transition-colors mb-8"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -379,10 +379,10 @@ function App() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
               <div className="text-center mb-16">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-900 mb-6 leading-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-slate-900 dark:text-slate-100 mb-6 leading-tight">
                   Messages from Leadership
                 </h1>
-                <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
                   Inspiring words from our esteemed Chancellor and Vice Chancellor guiding our community forward
                 </p>
               </div>
@@ -390,8 +390,8 @@ function App() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 max-w-7xl mx-auto">
                 {/* Chancellor Section */}
                 <div className="flex flex-col h-full">
-                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex-1 flex flex-col">
-                    <div className="h-64 sm:h-72 lg:h-80 bg-gradient-to-br from-blue-50 to-blue-100 relative overflow-hidden flex-shrink-0">
+                  <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden flex-1 flex flex-col">
+                    <div className="h-64 sm:h-72 lg:h-80 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 relative overflow-hidden flex-shrink-0">
                       <img
                         src="https://indiapressrelease.com/wp-content/uploads/2022/02/IT-Minister-Shri-Ashwini-Vaishnaw-to-release-National-Strategy-on-Additive-Manufacturing-tomorrow.jpg"
                         alt="Chancellor Shri Ashwini Vaishnaw"
@@ -400,23 +400,23 @@ function App() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>
                     <div className="p-4 sm:p-6 lg:p-8 flex-1 flex flex-col">
-                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
                         Chancellor's Message
                       </h3>
-                      <h4 className="text-lg sm:text-xl font-semibold text-blue-600 mb-1">
+                      <h4 className="text-lg sm:text-xl font-semibold text-blue-600 dark:text-blue-400 mb-1">
                         Shri Ashwini Vaishnaw
                       </h4>
-                      <p className="text-slate-600 text-xs sm:text-sm mb-4 lg:mb-6">
+                      <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-4 lg:mb-6">
                         Hon'ble Minister for Railways, Information and Broadcasting, Electronics & Information Technology, Government of India.
                       </p>
                       <div className="prose prose-slate max-w-none flex-1 text-sm sm:text-base">
-                        <p className="text-slate-700 leading-relaxed mb-3 lg:mb-4">
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-3 lg:mb-4">
                           Gati Shakti Vishwavidyalaya (GSV) has been set up to create specialized and talented human resources that will accelerate the development of India's entire transportation and logistics sector. GSV highlights government's significant effort to enlarge PM GatiShakti National Master Plan and enhance logistics efficiency across the country.
                         </p>
-                        <p className="text-slate-700 leading-relaxed mb-3 lg:mb-4">
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-3 lg:mb-4">
                           The university's scope and vision, in the true sense of National Education Policy 2020, covers the entire transportation including railways, aviation, roadways, maritime sector, etc.
                         </p>
-                        <p className="text-slate-700 leading-relaxed">
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
                           The university offers a white-board to the Industry in terms of curriculum inputs of relevance and significance. Apart from regular education programs, the university shall put significant emphasis on executive training and skilling. The university's curriculum shall focus employment-oriented programs, keeping collaboration with Industry as a foundational approach.
                         </p>
                       </div>
@@ -426,8 +426,8 @@ function App() {
 
                 {/* Vice Chancellor Section */}
                 <div className="flex flex-col h-full">
-                  <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 flex-1 flex flex-col">
-                    <div className="h-64 sm:h-72 lg:h-80 bg-gradient-to-br from-purple-50 to-purple-100 relative overflow-hidden flex-shrink-0">
+                  <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-slate-200 dark:border-slate-700 flex-1 flex flex-col">
+                    <div className="h-64 sm:h-72 lg:h-80 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 relative overflow-hidden flex-shrink-0">
                       <img
                         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUG1QCmh58L_dw5Q9kEm7IfoyFTuSQgWF5M67lYp-bWbyE0WrT3MpT2N4sLdoChVTtDc7eaG-pz8sFqulZtVrHFl_g1U1_0UTUhkJUbczPc870VGGBHoq1cnGuHFchJ2HONauto0Xn2RM3dRtphDc880Jz1BvjKyxapfeLM2in_Zhq236_GTYmTGC8gAo/w178-h200/Manoj%20Choudhary.png"
                         alt="Vice Chancellor Prof. Manoj Choudhary"
@@ -436,26 +436,26 @@ function App() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                     </div>
                     <div className="p-4 sm:p-6 lg:p-8 flex-1 flex flex-col">
-                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
+                      <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
                         Vice Chancellor's Message
                       </h3>
-                      <h4 className="text-lg sm:text-xl font-semibold text-purple-600 mb-1">
+                      <h4 className="text-lg sm:text-xl font-semibold text-purple-600 dark:text-purple-400 mb-1">
                         Prof. Manoj Choudhary
                       </h4>
-                      <p className="text-slate-600 text-xs sm:text-sm mb-4 lg:mb-6">
+                      <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-4 lg:mb-6">
                         Gati Shakti Vishwavidyalaya
                       </p>
                       <div className="prose prose-slate max-w-none flex-1 text-sm sm:text-base">
-                        <p className="text-slate-700 leading-relaxed mb-3 lg:mb-4">
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-3 lg:mb-4">
                           Gati Shakti Vishwavidyalaya (GSV), India's first University in Transportation and Logistics sector, was established through the Central Universities (Amendment) Act 2022, passed by the Parliament in August 2022. Working under the Ministry of Railways (Govt. of India), the University was operationalised on December 6, 2022.
                         </p>
-                        <p className="text-slate-700 leading-relaxed mb-3 lg:mb-4">
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-3 lg:mb-4">
                           The University stands by its unique value proposition to offer logistics and transportation-focused applied education, training, skilling and research through experiential learning, multi-disciplinary research, and academia-industry interface. The University follows a demand-driven curriculum, while aligning with industry priorities.
                         </p>
-                        <p className="text-slate-700 leading-relaxed">
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
                           GSV shall lead the teaching, training and research in the entire transportation and logistics sector with a vision - "Innovation-led, Industry-driven University for creating, assimilating and imparting excellence of knowledge and actions accelerating development in the transport and logistics sectors".
                         </p>
-                        <p className="text-slate-700 leading-relaxed">
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
                           To this objective and vision, the university has made very rapid strides and significant progress in the last two and half years, across all the dimensions of industry-driven curricula, executive training programs, research and industry partnerships, to set up a strong foundation to be India's and World's Best University in the transportation and logistics sectors.
                         </p>
                       </div>
