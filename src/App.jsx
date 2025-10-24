@@ -13,6 +13,9 @@ import { MentorshipPage } from './pages/MentorshipPage';
 import { StoriesPage } from './pages/StoriesPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { AdminDashboard } from './pages/AdminDashboard';
+import { VideoGalleryPage } from './pages/VideoGalleryPage';
+import { PhotoGalleryPage } from './pages/PhotoGalleryPage';
+import { MagazinePage } from './pages/MagazinePage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -463,6 +466,33 @@ function App() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        );
+      case 'video-gallery':
+        return (
+          <div className="min-h-screen">
+            <Navigation onNavigate={handleNavigate} currentPage={currentPage} />
+            <div className="pt-20">
+              <VideoGalleryPage />
+            </div>
+          </div>
+        );
+      case 'photo-gallery':
+        return (
+          <div className="min-h-screen">
+            <Navigation onNavigate={handleNavigate} currentPage={currentPage} />
+            <div className="pt-20">
+              <PhotoGalleryPage />
+            </div>
+          </div>
+        );
+      case 'magazine':
+        return (
+          <div className="min-h-screen">
+            <Navigation onNavigate={handleNavigate} currentPage={currentPage} />
+            <div className="pt-20">
+              <MagazinePage />
             </div>
           </div>
         );

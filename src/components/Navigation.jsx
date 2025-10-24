@@ -21,7 +21,9 @@ export const Navigation = ({ onNavigate, currentPage }) => {
   const baseNavItems = [
     { id: 'home', label: 'Home' },
     { id: 'directory', label: 'Directory' },
-    { id: 'memories', label: 'Memories' },
+    { id: 'video-gallery', label: 'Video Gallery' },
+    { id: 'photo-gallery', label: 'Photo Gallery' },
+    { id: 'magazine', label: 'Magazine' },
     { id: 'events', label: 'Events' },
   ];
 
@@ -97,17 +99,6 @@ export const Navigation = ({ onNavigate, currentPage }) => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className={`lg:hidden p-2 rounded-xl transition-all duration-300 ${
-                currentPage === 'home' && !isScrolled
-                  ? 'bg-white/20 hover:bg-white/30'
-                  : 'bg-neutral-100 dark:bg-gray-800 hover:bg-neutral-200 dark:hover:bg-gray-700'
-              }`}
-              title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
-            >
-              {isDark ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-            </button>
 
           {user ? (
               <div className="hidden lg:flex items-center space-x-3">

@@ -4,14 +4,15 @@ import { StatsCounter } from '../components/StatsCounter';
 import { FeatureHighlights } from '../components/FeatureHighlights';
 import { ThisDayWidget } from '../components/ThisDayWidget';
 import { Testimonials } from '../components/Testimonials';
-import { ContactSection } from '../components/ContactSection';
-import { Mail, ArrowUp } from 'lucide-react';
+import { Mail, ArrowUp, Moon, Sun } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { useTheme } from '../contexts/ThemeContext';
 
 export const HomePage = ({ onNavigate, currentPage }) => {
   const [stats, setStats] = useState({});
   const [email, setEmail] = useState('');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     fetchStats();
@@ -52,13 +53,40 @@ export const HomePage = ({ onNavigate, currentPage }) => {
     <div className="relative">
       <Hero onNavigate={onNavigate} currentPage={currentPage} />
 
+      {/* Subtle Smarties Candy Essence Section */}
+      <div className="relative py-16 overflow-hidden">
+        {/* Candy-inspired background overlay */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-10 left-10 w-3 h-3 bg-red-400 rounded-full animate-pulse"></div>
+          <div className="absolute top-20 right-20 w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-16 left-1/4 w-2.5 h-2.5 bg-pink-400 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/3 right-10 w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-10 right-1/3 w-3.5 h-3.5 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute top-1/2 left-1/3 w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/4 w-2.5 h-2.5 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '3s' }}></div>
+        </div>
+
+        {/* Gradient overlay for subtle candy feel */}
+        <div className="absolute inset-0 bg-gradient-to-br from-red-50/20 via-yellow-50/20 via-pink-50/20 to-cyan-50/20"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Connect & Celebrate
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Join our vibrant community where memories are made and futures are shaped
+            </p>
+          </div>
+        </div>
+      </div>
+
 
       <div className="relative">
         <StatsCounter stats={stats} />
         <FeatureHighlights onNavigate={onNavigate} />
         <ThisDayWidget />
         <Testimonials />
-        <ContactSection />
       </div>
 
       <section className="py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white relative overflow-hidden">
