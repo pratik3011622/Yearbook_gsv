@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, GraduationCap, Moon, Sun } from 'lucide-react';
+import { Menu, X, GraduationCap, Moon, Sun, ChevronDown } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 
 export const Navigation = ({ onNavigate, currentPage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const { user, profile, signOut } = useAuth();
   const { isDark, toggleTheme } = useTheme();
 
@@ -21,9 +22,15 @@ export const Navigation = ({ onNavigate, currentPage }) => {
   const baseNavItems = [
     { id: 'home', label: 'Home' },
     { id: 'directory', label: 'Directory' },
-    { id: 'video-gallery', label: 'Video Gallery' },
-    { id: 'photo-gallery', label: 'Photo Gallery' },
-    { id: 'magazine', label: 'Magazine' },
+    {
+      id: 'yearbook',
+      label: 'Yearbook',
+      subItems: [
+        { id: 'photo-gallery', label: 'Photo Gallery' },
+        { id: 'video-gallery', label: 'Video Gallery' },
+        { id: 'magazine', label: 'Alumni Magazine' },
+      ]
+    },
     { id: 'events', label: 'Events' },
   ];
 
@@ -80,21 +87,64 @@ export const Navigation = ({ onNavigate, currentPage }) => {
 
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => onNavigate(item.id)}
-                className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 ${
-                  currentPage === item.id
-                    ? currentPage === 'home' && !isScrolled
-                      ? 'bg-white text-primary-900 shadow-soft'
-                      : 'bg-primary-900 text-white shadow-soft'
-                    : currentPage === 'home' && !isScrolled
-                    ? 'text-white/90 hover:bg-white/20 hover:text-white'
-                    : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-900 dark:hover:text-primary-100'
-                }`}
-              >
-                {item.label}
-              </button>
+              <div key={item.id} className="relative">
+                {item.subItems ? (
+                  <div>
+                    <button
+                      onClick={() => setOpenDropdown(openDropdown === item.id ? null : item.id)}
+                      className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 flex items-center space-x-1 ${
+                        item.subItems.some(subItem => currentPage === subItem.id)
+                          ? currentPage === 'home' && !isScrolled
+                            ? 'bg-white text-primary-900 shadow-soft'
+                            : 'bg-primary-900 text-white shadow-soft'
+                          : currentPage === 'home' && !isScrolled
+                          ? 'text-white/90 hover:bg-white/20 hover:text-white'
+                          : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-900 dark:hover:text-primary-100'
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === item.id ? 'rotate-180' : ''}`} />
+                    </button>
+                    {openDropdown === item.id && (
+                      <div className={`absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 py-2 z-50 ${
+                        currentPage === 'home' && !isScrolled ? 'backdrop-blur-md bg-white/95' : ''
+                      }`}>
+                        {item.subItems.map((subItem) => (
+                          <button
+                            key={subItem.id}
+                            onClick={() => {
+                              onNavigate(subItem.id);
+                              setOpenDropdown(null);
+                            }}
+                            className={`block w-full text-left px-4 py-3 text-sm font-medium transition-all duration-200 ${
+                              currentPage === subItem.id
+                                ? 'bg-primary-900 text-white'
+                                : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-900 dark:hover:text-primary-100'
+                            }`}
+                          >
+                            {subItem.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => onNavigate(item.id)}
+                    className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 ${
+                      currentPage === item.id
+                        ? currentPage === 'home' && !isScrolled
+                          ? 'bg-white text-primary-900 shadow-soft'
+                          : 'bg-primary-900 text-white shadow-soft'
+                        : currentPage === 'home' && !isScrolled
+                        ? 'text-white/90 hover:bg-white/20 hover:text-white'
+                        : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-900 dark:hover:text-primary-100'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                )}
+              </div>
             ))}
           </div>
 
@@ -187,20 +237,58 @@ export const Navigation = ({ onNavigate, currentPage }) => {
         }`}>
           <div className="px-4 py-4 space-y-2">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => {
-                  onNavigate(item.id);
-                  setIsMobileMenuOpen(false);
-                }}
-                className={`block w-full text-left px-4 py-3 rounded-xl font-medium transition-all ${
-                  currentPage === item.id
-                    ? 'bg-primary-900 text-white'
-                    : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20'
-                }`}
-              >
-                {item.label}
-              </button>
+              <div key={item.id}>
+                {item.subItems ? (
+                  <div>
+                    <button
+                      onClick={() => setOpenDropdown(openDropdown === item.id ? null : item.id)}
+                      className={`flex items-center justify-between w-full px-4 py-3 rounded-xl font-medium transition-all ${
+                        item.subItems.some(subItem => currentPage === subItem.id)
+                          ? 'bg-primary-900 text-white'
+                          : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20'
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === item.id ? 'rotate-180' : ''}`} />
+                    </button>
+                    {openDropdown === item.id && (
+                      <div className="ml-4 mt-2 space-y-1">
+                        {item.subItems.map((subItem) => (
+                          <button
+                            key={subItem.id}
+                            onClick={() => {
+                              onNavigate(subItem.id);
+                              setIsMobileMenuOpen(false);
+                              setOpenDropdown(null);
+                            }}
+                            className={`block w-full text-left px-4 py-2 rounded-lg font-medium text-sm transition-all ${
+                              currentPage === subItem.id
+                                ? 'bg-primary-900 text-white'
+                                : 'text-neutral-600 dark:text-neutral-400 hover:bg-primary-50 dark:hover:bg-primary-900/20'
+                            }`}
+                          >
+                            {subItem.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => {
+                      onNavigate(item.id);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`block w-full text-left px-4 py-3 rounded-xl font-medium transition-all ${
+                      currentPage === item.id
+                        ? 'bg-primary-900 text-white'
+                        : 'text-neutral-700 dark:text-neutral-300 hover:bg-primary-50 dark:hover:bg-primary-900/20'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                )}
+              </div>
             ))}
             {user ? (
               <button
