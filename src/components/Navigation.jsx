@@ -22,6 +22,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
   const baseNavItems = [
     { id: 'home', label: 'Home' },
     { id: 'directory', label: 'Directory' },
+    { id: 'events', label: 'Events' },
     {
       id: 'yearbook',
       label: 'Yearbook',
@@ -31,7 +32,6 @@ export const Navigation = ({ onNavigate, currentPage }) => {
         { id: 'magazine', label: 'Alumni Magazine' },
       ]
     },
-    { id: 'events', label: 'Events' },
   ];
 
   const userNavItems = user
@@ -39,7 +39,6 @@ export const Navigation = ({ onNavigate, currentPage }) => {
         ...baseNavItems,
         { id: 'jobs', label: 'Jobs' },
         { id: 'mentorship', label: 'Mentorship' },
-        { id: 'stories', label: 'Stories' },
         { id: 'dashboard', label: 'Dashboard' },
       ]
     : baseNavItems;
