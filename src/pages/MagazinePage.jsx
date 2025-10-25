@@ -87,12 +87,18 @@ export const MagazinePage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-25 via-pink-25 to-purple-25 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       {/* Header */}
-      <div className="bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 text-white py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-rose-500 via-pink-500 via-purple-500 to-indigo-500 text-white py-20 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-pink-300/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-purple-300/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6 drop-shadow-2xl">
             Alumni Magazine
           </h1>
-          <p className="text-xl text-rose-100 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-lg">
             Stay connected through our quarterly magazine featuring stories, achievements, and updates from the Gati Shakti Vishwavidyalaya community
           </p>
         </div>

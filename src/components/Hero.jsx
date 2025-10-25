@@ -21,6 +21,7 @@ export const Hero = ({ onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const [isYearbookDropdownOpen, setIsYearbookDropdownOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -40,8 +41,9 @@ export const Hero = ({ onNavigate }) => {
     };
 
     const handleClickOutside = (e) => {
-      if (!e.target.closest('.about-dropdown')) {
+      if (!e.target.closest('.about-dropdown') && !e.target.closest('.yearbook-dropdown')) {
         setIsAboutDropdownOpen(false);
+        setIsYearbookDropdownOpen(false);
       }
     };
 
@@ -155,7 +157,77 @@ export const Hero = ({ onNavigate }) => {
               <button onClick={() => onNavigate('home')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-xs sm:text-sm lg:text-base xl:text-lg px-2 sm:px-3 lg:px-4 xl:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Home</button>
               <button onClick={() => onNavigate('directory')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-xs sm:text-sm lg:text-base xl:text-lg px-2 sm:px-3 lg:px-4 xl:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Directory</button>
               <button onClick={() => onNavigate('events')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-xs sm:text-sm lg:text-base xl:text-lg px-2 sm:px-3 lg:px-4 xl:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Events</button>
-              <button onClick={() => onNavigate('stories')} className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-xs sm:text-sm lg:text-base xl:text-lg px-2 sm:px-3 lg:px-4 xl:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105">Stories</button>
+              {/* Yearbook Dropdown */}
+              <div className="relative yearbook-dropdown">
+                <button
+                  onClick={() => setIsYearbookDropdownOpen(!isYearbookDropdownOpen)}
+                  className="text-white hover:text-yellow-300 font-semibold transition-all duration-300 text-xs sm:text-sm lg:text-base xl:text-lg px-2 sm:px-3 lg:px-4 xl:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-xl hover:bg-gradient-to-r hover:from-yellow-400/20 hover:to-pink-400/20 backdrop-blur-sm border border-white/10 hover:border-yellow-300/30 hover:shadow-lg hover:shadow-yellow-400/20 transform hover:scale-105 flex items-center space-x-1"
+                >
+                  <span>Yearbook</span>
+                  <ChevronDown className={`w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 ${isYearbookDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {/* Dropdown Menu - Positioned to overlay slideshow */}
+                {isYearbookDropdownOpen && (
+                  <div className="fixed top-20 sm:top-24 left-1/2 -translate-x-1/2 w-80 sm:w-96 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 dark:border-gray-700 overflow-hidden z-[70]">
+                    <div className="py-2 sm:py-3">
+                      <button
+                        onClick={() => {
+                          onNavigate('photo-gallery');
+                          setIsYearbookDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-4 sm:px-6 py-3 sm:py-5 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-blue-50 dark:hover:from-blue-900/20 hover:to-purple-50 dark:hover:to-purple-900/20 hover:text-blue-700 dark:hover:text-blue-400 transition-all duration-200 flex items-center space-x-3 sm:space-x-4 group"
+                      >
+                        <div className="w-10 h-10 sm:w-14 sm:h-14 bg-blue-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                          <svg className="w-5 h-5 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-lg sm:text-xl text-gray-900 dark:text-gray-100">Photo Gallery</div>
+                          <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Memorable moments captured</div>
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          onNavigate('video-gallery');
+                          setIsYearbookDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-4 sm:px-6 py-3 sm:py-5 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-purple-50 dark:hover:from-purple-900/20 hover:to-pink-50 dark:hover:to-pink-900/20 hover:text-purple-700 dark:hover:text-purple-400 transition-all duration-200 flex items-center space-x-3 sm:space-x-4 group"
+                      >
+                        <div className="w-10 h-10 sm:w-14 sm:h-14 bg-purple-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                          <svg className="w-5 h-5 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-lg sm:text-xl text-gray-900 dark:text-gray-100">Video Gallery</div>
+                          <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Cherished memories in motion</div>
+                        </div>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          onNavigate('magazine');
+                          setIsYearbookDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-4 sm:px-6 py-3 sm:py-5 text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-orange-50 dark:hover:from-orange-900/20 hover:to-red-50 dark:hover:to-red-900/20 hover:text-orange-700 dark:hover:text-orange-400 transition-all duration-200 flex items-center space-x-3 sm:space-x-4 group"
+                      >
+                        <div className="w-10 h-10 sm:w-14 sm:h-14 bg-orange-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                          <svg className="w-5 h-5 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-lg sm:text-xl text-gray-900 dark:text-gray-100">Alumni Magazine</div>
+                          <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Stories and achievements</div>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
 
               {/* About Dropdown */}
               <div className="relative about-dropdown">

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Play, Calendar, User, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Play, Calendar, User, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const videoData = [
   {
@@ -79,6 +79,15 @@ const categories = ['All', 'Events', 'Campus Life', 'Interviews', 'Academic'];
 export const VideoGalleryPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % videoData.length);
+    }, 4000); // Auto-slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const filteredVideos = selectedCategory === 'All'
     ? videoData
@@ -92,21 +101,97 @@ export const VideoGalleryPage = () => {
     setSelectedVideo(null);
   };
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % videoData.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + videoData.length) % videoData.length);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-25 via-indigo-25 to-purple-25 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-20 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-blue-500 via-indigo-500 via-purple-500 to-pink-500 text-white py-20 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-40 h-40 bg-indigo-300/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-purple-300/15 rounded-full blur-lg animate-pulse" style={{ animationDelay: '2s' }}></div>
+        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6 drop-shadow-2xl">
             Video Gallery
           </h1>
-          <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-lg">
             Relive the moments that shaped our Gati Shakti Vishwavidyalaya community through our video archives
           </p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Video Slideshow */}
+        <div className="mb-16 relative">
+          <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            {videoData.map((video, index) => (
+              <div
+                key={video.id}
+                className={`absolute inset-0 transition-opacity duration-1000 ${
+                  index === currentSlide ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-4 mx-auto">
+                      <Play className="w-10 h-10 text-white ml-1" fill="white" />
+                    </div>
+                    <h3 className="text-2xl lg:text-3xl font-bold mb-2 drop-shadow-lg">{video.title}</h3>
+                    <p className="text-lg text-white/90 drop-shadow-md max-w-md mx-auto">{video.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 hover:bg-white/30 transition-all"
+              aria-label="Previous video"
+            >
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </button>
+
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 hover:bg-white/30 transition-all"
+              aria-label="Next video"
+            >
+              <ChevronRight className="w-6 h-6 text-white" />
+            </button>
+
+            {/* Slide Indicators */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+              {videoData.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? 'w-8 bg-white'
+                      : 'w-2 bg-white/50 hover:bg-white/70'
+                  }`}
+                  aria-label={`Go to video ${index + 1}`}
+                ></button>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
