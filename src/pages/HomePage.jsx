@@ -243,7 +243,7 @@ export const HomePage = ({ onNavigate, currentPage }) => {
           <div className="border-t border-neutral-800 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-neutral-400 dark:text-neutral-300 text-base">
-                &copy; 2025 AlumniVerse. All rights reserved.
+                &copy; 2025 TechnoCrats. All rights reserved.
               </p>
               <div className="flex space-x-6 text-sm text-neutral-500 dark:text-neutral-400">
                 <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
