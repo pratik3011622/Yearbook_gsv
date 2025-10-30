@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ContactSection } from '../components/ContactSection';
 import { Hero } from '../components/Hero';
 import { StatsCounter } from '../components/StatsCounter';
 import { FeatureHighlights } from '../components/FeatureHighlights';
@@ -86,53 +87,10 @@ export const HomePage = ({ onNavigate, currentPage }) => {
         <StatsCounter stats={stats} />
         <FeatureHighlights onNavigate={onNavigate} />
         <ThisDayWidget />
+        <ContactSection />
         <Testimonials />
       </div>
 
-      <section className="py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-accent-400 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary-400 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-accent-500/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 mb-8">
-            <Mail className="w-5 h-5 text-accent-400" />
-            <span className="font-medium">Stay Updated</span>
-          </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
-            Stay Connected
-          </h2>
-          <p className="text-xl text-primary-100 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Get notified about upcoming reunions, events, and community updates. Join our newsletter for exclusive content and opportunities.
-          </p>
-
-          <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-6 max-w-2xl mx-auto">
-            <div className="relative flex-1 group">
-              <Mail className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-400 group-focus-within:text-accent-400 transition-colors" />
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address"
-                className="w-full pl-14 pr-6 py-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder-primary-200 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:border-accent-400 transition-all duration-300 text-lg"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="px-10 py-5 bg-gradient-to-r from-accent-500 to-accent-600 text-white font-semibold text-lg rounded-2xl hover:shadow-lg hover:shadow-accent-500/50 transition-all hover:scale-105 hover:from-accent-600 hover:to-accent-700 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-900"
-            >
-              Subscribe Now
-            </button>
-          </form>
-
-          <p className="text-primary-200 text-sm mt-6">
-            We respect your privacy. Unsubscribe at any time.
-          </p>
-        </div>
-      </section>
 
       <footer className="bg-neutral-900 dark:bg-black text-white py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900/10 to-accent-900/10"></div>

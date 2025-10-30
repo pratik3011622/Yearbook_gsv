@@ -109,7 +109,7 @@ export const ContactSection = () => {
             <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-neutral-200 dark:border-slate-700">
               <div className="aspect-w-16 aspect-h-9">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.123456789012!2d73.1812!3d22.3072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8ab12345678%3A0xabcdef1234567890!2s76J2%2BP3P%2C%20Dr%20Venibhai%20Modi%20Marg%2C%20Lalbaug%2C%20Manjalpur%2C%20Vadodara%2C%20Gujarat%20390004!5e0!3m2!1sen!2sin!4v1698765432109!5m2!1sen!2sin"
+                  src="https://maps.google.com/maps?q=22.3072,73.1812&z=15&output=embed"
                   width="100%"
                   height="400"
                   style={{ border: 0 }}
