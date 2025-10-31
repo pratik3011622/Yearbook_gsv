@@ -1,4 +1,4 @@
-import { Users, BookOpen, Calendar, HeartHandshake, Briefcase, Newspaper } from 'lucide-react';
+import { Users, BookOpen, Calendar, Briefcase, Newspaper } from 'lucide-react';
 
 export const FeatureHighlights = ({ onNavigate }) => {
   const features = [
@@ -28,15 +28,6 @@ export const FeatureHighlights = ({ onNavigate }) => {
       bgColor: 'bg-purple-500/10',
       iconColor: 'text-purple-600',
       page: 'events',
-    },
-    {
-      icon: HeartHandshake,
-      title: 'Mentorship',
-      description: 'Give back by mentoring students or seek guidance from experienced alumni.',
-      color: 'from-emerald-500 to-emerald-600',
-      bgColor: 'bg-emerald-500/10',
-      iconColor: 'text-emerald-600',
-      page: 'mentorship',
     },
     {
       icon: Briefcase,

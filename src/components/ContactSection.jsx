@@ -109,7 +109,7 @@ export const ContactSection = () => {
             <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-neutral-200 dark:border-slate-700">
               <div className="aspect-w-16 aspect-h-9">
                 <iframe
-                  src="https://maps.google.com/maps?q=22.3072,73.1812&z=15&output=embed"
+                  src="https://maps.google.com/maps?q=Gati+Shakti+Vishwavidyalaya,+Vadodara,+Gujarat,+India&z=17&output=embed"
                   width="100%"
                   height="400"
                   style={{ border: 0 }}
