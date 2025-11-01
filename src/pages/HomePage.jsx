@@ -5,6 +5,10 @@ import { StatsCounter } from '../components/StatsCounter';
 import { FeatureHighlights } from '../components/FeatureHighlights';
 import { ThisDayWidget } from '../components/ThisDayWidget';
 import { Testimonials } from '../components/Testimonials';
+import { AnimatedText } from '../components/AnimatedText';
+import { ScrollReveal } from '../components/ScrollReveal';
+import { ParallaxSection } from '../components/ParallaxSection';
+import { FloatingParticles } from '../components/FloatingParticles';
 import { Mail, ArrowUp, Moon, Sun } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useTheme } from '../contexts/ThemeContext';
@@ -71,34 +75,75 @@ export const HomePage = ({ onNavigate, currentPage }) => {
         <div className="absolute inset-0 bg-gradient-to-br from-red-50/20 via-yellow-50/20 via-pink-50/20 to-cyan-50/20"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Connect & Celebrate
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Join our vibrant community where memories are made and futures are shaped
-            </p>
-          </div>
+          <ScrollReveal direction="up" delay={0.2}>
+            <div className="text-center">
+              <AnimatedText
+                text="Connect & Celebrate"
+                className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+                delay={0.3}
+              />
+              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                Join our vibrant community where memories are made and futures are shaped
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
 
 
       <div className="relative">
-        <StatsCounter stats={stats} />
-        <FeatureHighlights onNavigate={onNavigate} />
-        <ThisDayWidget />
-        <ContactSection />
-        <Testimonials />
+        <FloatingParticles count={6} className="z-0" />
+        <ParallaxSection speed={0.3} direction="up">
+          <ScrollReveal direction="up" delay={0.1}>
+            <StatsCounter stats={stats} />
+          </ScrollReveal>
+        </ParallaxSection>
+        <ParallaxSection speed={0.2} direction="down">
+          <ScrollReveal direction="up" delay={0.2}>
+            <FeatureHighlights onNavigate={onNavigate} />
+          </ScrollReveal>
+        </ParallaxSection>
+        <ParallaxSection speed={0.4} direction="up">
+          <ScrollReveal direction="up" delay={0.3}>
+            <ThisDayWidget />
+          </ScrollReveal>
+        </ParallaxSection>
+        <ParallaxSection speed={0.1} direction="down">
+          <ScrollReveal direction="up" delay={0.4}>
+            <ContactSection />
+          </ScrollReveal>
+        </ParallaxSection>
+        <ParallaxSection speed={0.3} direction="up">
+          <ScrollReveal direction="up" delay={0.5}>
+            <Testimonials />
+          </ScrollReveal>
+        </ParallaxSection>
       </div>
 
 
-      <footer className="bg-neutral-900 dark:bg-black text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/10 to-accent-900/10"></div>
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-500/20 to-transparent"></div>
+      <footer className="relative overflow-hidden">
+        {/* Animated gradient background matching the website's vibrant theme */}
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-800 via-pink-700 to-cyan-800"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div className="md:col-span-1">
+        {/* Floating animated elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-10 w-4 h-4 bg-yellow-400 rounded-full animate-pulse"></div>
+          <div className="absolute top-20 right-20 w-3 h-3 bg-pink-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-20 left-1/4 w-5 h-5 bg-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/3 right-10 w-3 h-3 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-10 right-1/3 w-4 h-4 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-red-400 rounded-full animate-pulse" style={{ animationDelay: '2.5s' }}></div>
+          <div className="absolute bottom-1/4 right-1/4 w-4 h-4 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '3s' }}></div>
+          <div className="absolute top-3/4 left-1/2 w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '3.5s' }}></div>
+        </div>
+
+        {/* Subtle overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30"></div>
+
+        <div className="relative z-10 py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-12">
+              <div className="lg:col-span-2">
               <h3 className="text-3xl font-serif font-bold mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:text-white">
                 GSVConnect
               </h3>
@@ -178,11 +223,6 @@ export const HomePage = ({ onNavigate, currentPage }) => {
               <h4 className="font-semibold mb-6 text-lg text-white dark:text-gray-100">Community</h4>
               <ul className="space-y-3 text-neutral-400 dark:text-neutral-300">
                 <li>
-                  <button onClick={() => onNavigate('mentorship')} className="hover:text-white transition-colors text-base hover:translate-x-1 transform duration-200">
-                    Mentorship Program
-                  </button>
-                </li>
-                <li>
                   <button onClick={() => onNavigate('stories')} className="hover:text-white transition-colors text-base hover:translate-x-1 transform duration-200">
                     Alumni Stories
                   </button>
@@ -219,6 +259,7 @@ export const HomePage = ({ onNavigate, currentPage }) => {
                 <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
                 <a href="#" className="hover:text-white transition-colors">Contact Us</a>
               </div>
+            </div>
             </div>
           </div>
         </div>

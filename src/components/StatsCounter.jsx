@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Users, Globe, Calendar, Briefcase } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ScrollReveal } from './ScrollReveal';
 
 const useCountUp = (end, duration = 2000, startCounting) => {
   const [count, setCount] = useState(0);
@@ -113,13 +115,17 @@ export const StatsCounter = ({ stats }) => {
           {statsData.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div
+              <ScrollReveal
                 key={index}
+                direction="up"
+                delay={index * 0.15}
                 className="group relative card-elevated hover:-translate-y-2"
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                }}
               >
+                <motion.div
+                  whileHover={{ scale: 1.05, rotateY: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                >
                 <div className={`${stat.bgColor} w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <Icon className={`w-8 h-8 ${stat.iconColor}`} />
                 </div>
@@ -135,7 +141,8 @@ export const StatsCounter = ({ stats }) => {
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl"></div>
-              </div>
+                </motion.div>
+              </ScrollReveal>
             );
           })}
         </div>

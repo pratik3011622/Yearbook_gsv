@@ -1,4 +1,7 @@
 import { Users, BookOpen, Calendar, Briefcase, Newspaper } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ScrollReveal } from './ScrollReveal';
+import { MagneticCard } from './MagneticCard';
 
 export const FeatureHighlights = ({ onNavigate }) => {
   const features = [
@@ -65,14 +68,23 @@ export const FeatureHighlights = ({ onNavigate }) => {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div
+              <ScrollReveal
                 key={index}
-                onClick={() => onNavigate(feature.page)}
-                className="group relative card-elevated cursor-pointer overflow-hidden hover:-translate-y-2"
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                }}
+                direction={index % 2 === 0 ? 'left' : 'right'}
+                delay={index * 0.1}
+                className="group relative cursor-pointer overflow-hidden"
               >
+                <MagneticCard
+                  className="card-elevated hover:-translate-y-2"
+                  strength={0.4}
+                  range={120}
+                >
+                  <motion.div
+                    onClick={() => onNavigate(feature.page)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                  >
                 <div className={`${feature.bgColor} w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
                   <Icon className={`w-8 h-8 ${feature.iconColor}`} />
                 </div>
@@ -102,10 +114,12 @@ export const FeatureHighlights = ({ onNavigate }) => {
                   </svg>
                 </div>
 
-                <div
-                  className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                ></div>
-              </div>
+                    <div
+                      className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                    ></div>
+                  </motion.div>
+                </MagneticCard>
+              </ScrollReveal>
             );
           })}
         </div>

@@ -38,7 +38,7 @@ export const Navigation = ({ onNavigate, currentPage }) => {
     ? [
         ...baseNavItems,
         { id: 'jobs', label: 'Jobs' },
-        { id: 'mentorship', label: 'Mentorship' },
+        { id: 'profile', label: 'Profile' },
         { id: 'dashboard', label: 'Dashboard' },
       ]
     : baseNavItems;
@@ -336,12 +336,23 @@ export const Navigation = ({ onNavigate, currentPage }) => {
               </div>
             ))}
             {user ? (
-              <button
-                onClick={signOut}
-                className="block w-full text-left px-4 py-3 bg-red-600 text-white rounded-xl font-medium hover:bg-red-700 transition-colors"
-              >
-                Sign Out
-              </button>
+              <>
+                <button
+                  onClick={() => {
+                    onNavigate('profile');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 text-primary-900 dark:text-primary-100 font-medium hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-xl"
+                >
+                  My Profile
+                </button>
+                <button
+                  onClick={signOut}
+                  className="block w-full text-left px-4 py-3 bg-red-600 text-white rounded-xl font-medium hover:bg-red-700 transition-colors"
+                >
+                  Sign Out
+                </button>
+              </>
             ) : (
               <>
                 <button
